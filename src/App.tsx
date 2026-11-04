@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { SiteHeader } from './components/shared/SiteHeader';
 import { PageTransition } from './components/shared/PageTransition';
 import { SiteFooter } from './components/shared/SiteFooter';
@@ -21,6 +23,8 @@ export const App: React.FC = () => {
         </Routes>
       </PageTransition>
       <SiteFooter />
+      <Analytics />
+      <SpeedInsights />
     </BrowserRouter>
   );
 };
