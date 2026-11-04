@@ -70,7 +70,7 @@ export const SITE_COPY = {
     },
 
     whyMe: {
-      heading: 'A few things I bring to the table.',
+      heading: 'What I bring to the table?',
       loreAffordance: 'Explore character lore',
       closingLine: "Don't just take my word for it. Explore the examples.",
       strengths: [

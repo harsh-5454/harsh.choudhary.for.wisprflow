@@ -147,7 +147,6 @@ export const WisprEditorialSection: React.FC = () => {
         <div className="editorial-shell">
           <div className="wispr-layout">
             <div className="wispr-left">
-              <span className="wispr-eyebrow">02. WHY WISPR FLOW</span>
               <h2 id="wispr-heading" className="display-h2 wispr-heading">
                 {SITE_COPY.home.wispr.heading}
               </h2>
@@ -180,10 +179,9 @@ export const WisprEditorialSection: React.FC = () => {
       <div ref={pinnedStageRef} className="wispr-pinned-stage">
         <div className="editorial-shell wispr-shell">
           <div className="wispr-layout">
-            {/* Left Column: Pinned Eyebrow & Display Heading */}
+            {/* Left Column: Pinned Display Heading */}
             <div className="wispr-left">
               <div className="wispr-left-anchor">
-                <span className="wispr-eyebrow">02. WHY WISPR FLOW</span>
                 <h2 id="wispr-heading" className="display-h2 wispr-heading">
                   {SITE_COPY.home.wispr.heading}
                 </h2>

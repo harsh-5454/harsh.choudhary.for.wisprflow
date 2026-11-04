@@ -120,7 +120,7 @@
 /* Symmetrical Subheadings Centered & Brought Inward in Whitespace Above/Around Character */
 .hero-flanking-subheadings {
   position: absolute;
-  top: clamp(23%, 26vh, 29%);
+  top: calc(clamp(23%, 26vh, 29%) + 10px);
   left: calc(50% - 1.25rem);
   transform: translateX(-50%);
   width: min(94vw, 71rem);
@@ -204,16 +204,6 @@
 .wispr-left-anchor {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-}
-
-.wispr-eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .wispr-heading {
@@ -318,8 +308,16 @@
 }
 
 .why-me-heading {
-  grid-column: 2 / 11;
+  grid-column: 1 / 11;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'wdth' 98;
+  font-weight: 630;
+  font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  color: var(--ink);
   max-width: 18ch;
+  text-wrap: balance;
 }
 
 .why-me-stage {
@@ -880,7 +878,7 @@
   }
 
   .hero-flanking-subheadings {
-    top: clamp(25%, 28vh, 33%);
+    top: calc(clamp(25%, 28vh, 33%) + 10px);
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -922,7 +920,8 @@
     width: 100%;
   }
 
-  .wispr-heading {
+  .wispr-heading,
+  .why-me-heading {
     font-size: clamp(2rem, 6.5vw, 2.75rem);
   }
 

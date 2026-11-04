@@ -21,7 +21,7 @@ And Nimisha's journey, from cold-DMing Tanay to building and leading Wispr Flow 
 It's the kind of place I'd be excited to build in.
 
 ### 03. Why Me
-A few things I bring to the table.
+What I bring to the table?
 
 Extreme ownership — If something needs doing, I'm usually happy to figure out how to get it done.
 
