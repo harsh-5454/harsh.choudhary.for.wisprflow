@@ -1,0 +1,1015 @@
+/* ==========================================================================
+   HOMEPAGE COMPOSITIONS (`design.md` Section 2 & `emergent_master_prompt.md`)
+   Every section uses a distinct editorial geometry — no repeated symmetrical
+   two-column grids, no SaaS cards, no centered pill-button heroes.
+   ========================================================================== */
+
+/* 01. SCROLL-CONTROLLED CINEMATIC HERO
+   Full-viewport pinned stage (100svh) with independent background video & foreground text layers
+   ========================================================================== */
+
+.hero-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 380vh; /* 100vh initial fold + 280vh animation scroll distance */
+  background-color: var(--paper);
+}
+
+.hero-pinned-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background-color: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Video Layer */
+.hero-video-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--paper);
+}
+
+.hero-video-element {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: translateZ(0);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.hero-video-element.is-ready {
+  opacity: 1;
+}
+
+.hero-video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 350ms ease;
+}
+
+.hero-video-poster.is-hidden {
+  opacity: 0;
+}
+
+/* Foreground Content Layer — Full viewport container */
+.hero-foreground-layer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Hero Heading: Centrally in the whitespace above the character in 2 lines */
+.hero-headline-centered {
+  position: absolute;
+  top: clamp(6%, 8vh, 10.5%);
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: max-content;
+  max-width: 92vw;
+  text-align: center;
+  pointer-events: auto;
+  will-change: transform, opacity;
+}
+
+.hero-display-h1 {
+  font-family: var(--font-serif);
+  font-weight: 550;
+  font-size: clamp(1.85rem, 2.85vw, 3.15rem);
+  line-height: 1.22;
+  letter-spacing: -0.024em;
+  color: var(--ink);
+  margin-inline: auto;
+}
+
+.hero-headline-line {
+  display: block;
+}
+
+.hero-headline-line--1 {
+  white-space: nowrap;
+}
+
+.hero-headline-line--2 {
+  margin-top: 0.28em;
+  white-space: nowrap;
+}
+
+/* Symmetrical Subheadings Centered & Brought Inward in Whitespace Above/Around Character */
+.hero-flanking-subheadings {
+  position: absolute;
+  top: clamp(23%, 26vh, 29%);
+  left: calc(50% - 1.25rem);
+  transform: translateX(-50%);
+  width: min(94vw, 71rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(5rem, 8vw, 9rem);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.hero-subheading-block {
+  pointer-events: auto;
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+.hero-subheading-block--left {
+  flex: 0 1 27rem;
+  max-width: 27rem;
+  text-align: center;
+}
+
+.hero-subheading-block--right {
+  flex: 0 1 24rem;
+  max-width: 24rem;
+  text-align: center;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.hero-supporting-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.2vw, 1.1875rem);
+  font-weight: 600;
+  line-height: 1.52;
+  letter-spacing: -0.018em;
+  color: #0c0c0a;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 14px rgba(248, 247, 243, 0.9);
+}
+
+/* 02. WHY WISPR FLOW — Kinetic Drum Roller Spread (Ref: Jump Cities Drum) */
+.wispr-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 320vh;
+  background-color: var(--paper);
+}
+
+.wispr-pinned-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+
+.wispr-shell {
+  width: 100%;
+}
+
+.wispr-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: center;
+  width: 100%;
+}
+
+.wispr-left {
+  grid-column: 1 / 6;
+  display: flex;
+  align-items: center;
+}
+
+.wispr-left-anchor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.wispr-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wispr-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'wdth' 98;
+  font-weight: 630;
+  font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+}
+
+.wispr-right {
+  grid-column: 6 / 13;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Kinetic Vertical Drum Viewport with edge gradient fading */
+.wispr-drum-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(480px, 68vh, 640px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 16%,
+    black 84%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 16%,
+    black 84%,
+    transparent 100%
+  );
+}
+
+.wispr-drum-track {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(3rem, 5.5vh, 4.75rem);
+  will-change: transform;
+}
+
+.wispr-drum-item {
+  width: 100%;
+  max-width: 44ch;
+  transform-origin: left center;
+  will-change: transform, opacity;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.wispr-drum-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.05vw, 2.05rem);
+  line-height: 1.34;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  margin: 0;
+  transition: color 150ms ease;
+}
+
+.wispr-drum-item--closing .wispr-drum-text {
+  font-size: clamp(1.6rem, 2.5vw, 2.55rem);
+  line-height: 1.18;
+  letter-spacing: -0.026em;
+  max-width: 28ch;
+}
+
+/* Reduced motion fallback styling */
+.wispr-section--reduced-motion {
+  padding-block: clamp(6rem, 14vh, 10rem);
+}
+
+.wispr-section--reduced-motion .wispr-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 03. WHY ME — Character-Selection & Lore Interaction (`emergent_master_prompt.md` §5) */
+.why-me-section {
+  padding-block: clamp(6rem, 14vh, 11rem);
+}
+
+.why-me-header {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  margin-bottom: clamp(3rem, 6.5vh, 5rem);
+}
+
+.why-me-heading {
+  grid-column: 2 / 11;
+  max-width: 18ch;
+}
+
+.why-me-stage {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+}
+
+.why-me-character-col {
+  grid-column: 1 / 6;
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+}
+
+.why-me-character-figure {
+  max-width: 24.5rem;
+  transition: transform 280ms var(--ease-editorial);
+}
+
+.why-me-character-figure.is-reacting {
+  transform: translateY(-3px);
+}
+
+.why-me-loop-controls {
+  margin-top: 0.65rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1.25rem;
+}
+
+.subtle-text-control {
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.subtle-text-control:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.why-me-attributes-col {
+  grid-column: 6 / 13;
+  padding-left: clamp(0rem, 2vw, 2rem);
+}
+
+.strength-attributes-list {
+  border-top: 1px solid var(--rule);
+}
+
+.strength-row {
+  border-bottom: 1px solid var(--rule);
+  padding-block: 1.35rem;
+  transition: border-color 240ms ease;
+}
+
+.strength-row.is-selected {
+  border-bottom-color: var(--ink);
+}
+
+.strength-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.strength-row__select {
+  flex: 1 1 16rem;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.strength-row__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  font-size: clamp(1.35rem, 1.9vw, 1.8rem);
+  font-weight: 610;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+  transition: color 220ms ease;
+}
+
+.strength-row.is-selected .strength-row__title,
+.strength-row__select:hover .strength-row__title {
+  color: var(--ink);
+}
+
+/* Qualitative Tactile Strength Bar — No numbers, scores, or game HUD chrome */
+.strength-row__bar-track {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: 5px;
+  background-color: var(--rule-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-row__bar-fill {
+  display: block;
+  height: 100%;
+  width: var(--bar-span, 85%);
+  background-color: var(--muted);
+  opacity: 0.35;
+  transform: scaleX(0.72);
+  transform-origin: left center;
+  transition:
+    transform 360ms var(--ease-editorial),
+    background-color 260ms ease,
+    opacity 260ms ease;
+}
+
+.strength-row.is-selected .strength-row__bar-fill {
+  background-color: var(--strength-accent, var(--clay-green));
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.strength-row__lore-trigger {
+  background: none;
+  border: none;
+  padding: 0.35rem 0;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.strength-row__lore-trigger:hover,
+.strength-row.is-selected .strength-row__lore-trigger {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.lore-arrow {
+  display: inline-block;
+  transition: transform 200ms var(--ease-editorial);
+}
+
+.strength-row__lore-trigger:hover .lore-arrow {
+  transform: translate(2px, -2px);
+}
+
+.strength-row__detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 300ms var(--ease-editorial),
+    opacity 260ms ease,
+    margin-top 300ms var(--ease-editorial);
+}
+
+.strength-row__detail.is-expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.strength-row__description {
+  overflow: hidden;
+  font-size: clamp(1.02rem, 1.12vw, 1.14rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+
+.why-me-closing-line {
+  margin-top: clamp(2.25rem, 5vh, 3.25rem);
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+
+/* Character Lore Dossier Dialog (`modern-web-guidance` top-layer transitions) */
+.lore-dossier {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0;
+  width: min(92vw, 44rem);
+  max-height: 88svh;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(14px);
+  transition-property: opacity, transform, display, overlay;
+  transition-duration: 260ms;
+  transition-timing-function: var(--ease-editorial);
+  transition-behavior: allow-discrete;
+}
+
+.lore-dossier[open]:where(:not([data-closing])) {
+  opacity: 1;
+  transform: translateY(0);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.lore-dossier::backdrop {
+  background-color: rgba(23, 23, 21, 0);
+  transition-property: background-color, display, overlay;
+  transition-duration: 260ms;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete;
+}
+
+.lore-dossier[open]:where(:not([data-closing]))::backdrop {
+  background-color: rgba(23, 23, 21, 0.38);
+
+  @starting-style {
+    background-color: rgba(23, 23, 21, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lore-dossier {
+    transform: none;
+    transition-duration: 90ms;
+  }
+}
+
+.lore-dossier__sheet {
+  padding: clamp(1.6rem, 3.5vw, 2.75rem);
+  border-top: 3px solid var(--dossier-accent, var(--clay-green));
+}
+
+.lore-dossier__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.lore-dossier__kicker {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.lore-dossier__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.4vw, 2.2rem);
+  font-weight: 630;
+  letter-spacing: -0.025em;
+}
+
+.lore-dossier__close {
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.lore-dossier__close:hover {
+  border-color: var(--ink);
+  background-color: var(--white);
+}
+
+.lore-dossier__quote {
+  font-size: 1.05rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.65rem;
+}
+
+.lore-dossier__body {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 1.65rem;
+  align-items: start;
+}
+
+.lore-dossier__slot-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+.lore-dossier__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.lore-dossier__lines span {
+  display: block;
+  height: 1px;
+  background-color: var(--rule);
+  width: 100%;
+}
+
+.lore-dossier__lines span.short {
+  width: 68%;
+}
+
+.lore-dossier__placeholder-note {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.lore-dossier__evidence-stage {
+  border: 1px solid var(--rule-subtle);
+}
+
+/* 04. WHY HIRE ME — Calm Workspace & Standalone Closing Statement */
+.why-hire-section {
+  padding-top: clamp(5rem, 12vh, 9.5rem);
+  padding-bottom: clamp(6.5rem, 15vh, 12rem);
+}
+
+.why-hire-lead {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  margin-bottom: clamp(3rem, 6vh, 4.75rem);
+}
+
+.why-hire-heading {
+  grid-column: 1 / 10;
+  max-width: 18ch;
+}
+
+.why-hire-body-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: center;
+}
+
+.why-hire-prose {
+  grid-column: 2 / 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.55rem;
+}
+
+.why-hire-visual {
+  grid-column: 7 / 13;
+}
+
+.why-hire-coda-wrap {
+  margin-top: clamp(5rem, 12vh, 9.5rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+.why-hire-coda {
+  grid-column: 2 / 12;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96;
+  font-size: clamp(1.9rem, 3.3vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+}
+
+/* 05. BEYOND THE SCREEN — Playful Sculptural Constellation */
+.beyond-section {
+  padding-block: clamp(6rem, 14vh, 11rem);
+  border-top: 1px solid var(--rule-subtle);
+}
+
+.beyond-header {
+  margin-bottom: clamp(2.75rem, 6vh, 4.5rem);
+}
+
+.beyond-heading {
+  max-width: 15ch;
+}
+
+.beyond-spread {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+}
+
+.beyond-narrative {
+  grid-column: 1 / 6;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+}
+
+.beyond-paragraph {
+  transition: color 200ms ease, transform 240ms var(--ease-editorial);
+}
+
+.beyond-paragraph.is-resonating {
+  color: var(--ink);
+  transform: translateX(4px);
+}
+
+/* Deliberate non-grid constellation across open canvas */
+.beyond-constellation {
+  grid-column: 6 / 13;
+  position: relative;
+  min-height: 27rem;
+}
+
+.beyond-object-item {
+  position: absolute;
+  width: clamp(9.5rem, 15.5vw, 13.75rem);
+  transition: transform 320ms var(--ease-editorial);
+}
+
+.beyond-object--reading {
+  top: -3%;
+  left: 4%;
+}
+
+.beyond-object--building {
+  top: 7%;
+  right: 0%;
+}
+
+.beyond-object--football {
+  bottom: 5%;
+  left: 17%;
+}
+
+.beyond-object--training {
+  bottom: -4%;
+  right: 7%;
+}
+
+.beyond-object-item:hover,
+.beyond-object-item.is-active {
+  transform: translateY(-5px) rotate(-1.5deg) scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beyond-object-item:hover,
+  .beyond-object-item.is-active,
+  .beyond-paragraph.is-resonating {
+    transform: none;
+  }
+}
+
+.beyond-signoff-wrap {
+  margin-top: clamp(2.25rem, 5vh, 3.75rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+.beyond-signoff {
+  grid-column: 4 / 12;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  font-size: clamp(1.35rem, 2.05vw, 1.95rem);
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 34ch;
+}
+
+/* 06. ABOUT BRIDGE — Quiet Editorial Threshold */
+.about-bridge-section {
+  padding-block: clamp(5.5rem, 13vh, 10rem);
+  border-top: 1px solid var(--rule-subtle);
+}
+
+.about-bridge-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+.about-bridge-content {
+  grid-column: 4 / 11;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-bridge-body {
+  max-width: 48ch;
+}
+
+.about-bridge-action {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.75rem;
+}
+
+.about-bridge-doorway {
+  width: 2.75rem;
+  height: auto;
+  color: var(--ink-soft);
+}
+
+/* Responsive Re-Composition for Mobile & Tablet (`emergent_master_prompt.md` §8) */
+@media (max-width: 960px) {
+  .hero-scroll-container {
+    height: 300vh;
+  }
+
+  .hero-pinned-stage {
+    height: 100svh;
+  }
+
+  .hero-video-element,
+  .hero-video-poster {
+    object-position: center 65%;
+  }
+
+  .hero-headline-centered {
+    top: clamp(8%, 11vh, 14%);
+    width: 92%;
+  }
+
+  .hero-display-h1 {
+    font-size: clamp(1.55rem, 5.8vw, 2.15rem);
+    line-height: 1.15;
+  }
+
+  .hero-headline-line--1,
+  .hero-headline-line--2 {
+    white-space: normal;
+  }
+
+  .hero-flanking-subheadings {
+    top: clamp(25%, 28vh, 33%);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92vw, 36rem);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding-inline: 1rem;
+  }
+
+  .hero-subheading-block--left,
+  .hero-subheading-block--right {
+    flex: 1 1 auto;
+    max-width: 36ch;
+    white-space: normal;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .hero-supporting-paragraph {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0c0c0a;
+    text-align: center;
+  }
+
+  .wispr-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .wispr-left,
+  .wispr-right {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .wispr-heading {
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
+  }
+
+  .wispr-drum-viewport {
+    height: clamp(380px, 55vh, 480px);
+  }
+
+  .wispr-drum-text {
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+    line-height: 1.4;
+  }
+
+  .why-me-heading,
+  .why-me-character-col,
+  .why-me-attributes-col {
+    grid-column: 1 / -1;
+    padding-left: 0;
+  }
+
+  .why-me-character-col {
+    position: static;
+    max-width: 21rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .lore-dossier__body {
+    grid-template-columns: 1fr;
+  }
+
+  .why-hire-heading,
+  .why-hire-prose,
+  .why-hire-visual,
+  .why-hire-coda {
+    grid-column: 1 / -1;
+  }
+
+  .why-hire-visual {
+    margin-top: 2.25rem;
+  }
+
+  .beyond-narrative,
+  .beyond-constellation,
+  .beyond-signoff {
+    grid-column: 1 / -1;
+  }
+
+  .beyond-constellation {
+    position: static;
+    min-height: 0;
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .beyond-object-item {
+    position: static;
+    width: 100%;
+    max-width: 10rem;
+    justify-self: center;
+  }
+
+  .beyond-object-item:nth-child(even) {
+    margin-top: 2rem;
+  }
+
+  .about-bridge-content {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Reduced Motion Fallback for Hero */
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-container {
+    height: auto !important;
+  }
+
+  .hero-pinned-stage {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100svh;
+  }
+
+  .hero-headline-centered,
+  .hero-subheading-block {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

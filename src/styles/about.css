@@ -1,0 +1,513 @@
+/* ==========================================================================
+   ABOUT PAGE COMPOSITIONS (`design.md` Section 3)
+   Structured editorial chapter opener + horizontal continuous miniature world
+   on desktop (vertical sequence on mobile / reduced motion) + quiet denouement.
+   ========================================================================== */
+
+/* 01. ABOUT INTRODUCTION */
+.about-intro-section {
+  padding-top: calc(var(--header-height) + clamp(2rem, 5vh, 4rem));
+  padding-bottom: clamp(3rem, 7vh, 5.5rem);
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: clamp(2.25rem, 5vh, 3.75rem);
+}
+
+.about-intro-headline-wrap {
+  grid-column: 1 / 10;
+}
+
+.about-intro-parenthetical {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.about-intro-body-wrap {
+  grid-column: 6 / 12;
+}
+
+.about-intro-skyline {
+  grid-column: 1 / -1;
+  margin-top: clamp(1rem, 3vh, 2.25rem);
+}
+
+.about-intro-skyline__svg {
+  width: 100%;
+  height: 4.5rem;
+}
+
+.skyline-mass {
+  fill: var(--paper-recessed);
+  stroke: var(--ink-soft);
+  stroke-width: 1.1;
+}
+
+.skyline-cap {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+
+/* 02. HORIZONTAL CAREER JOURNEY — DESKTOP PINNED STAGE */
+.career-journey-stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 42rem;
+  overflow: hidden;
+  background-color: var(--paper);
+  border-top: 1px solid var(--rule-subtle);
+  border-bottom: 1px solid var(--rule-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.career-journey-backdrop {
+  position: absolute;
+  left: 0;
+  bottom: 3.5rem;
+  width: 160%;
+  height: 34%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.career-journey-backdrop__svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Stable HTML Editorial Overlay in Upper-Left Negative Space (`design.md` Section 3.3) */
+.career-journey-overlay-shell {
+  position: absolute;
+  top: calc(var(--header-height) + 1rem);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter-outer);
+  pointer-events: none;
+}
+
+.career-journey-overlay {
+  pointer-events: auto;
+  max-width: min(33.5rem, 42vw);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  padding: 0.25rem 1.25rem 0.65rem 0;
+}
+
+.journey-overlay__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.journey-overlay__header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.chapter-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.career-chapter-heading {
+  margin-bottom: 0.15rem;
+}
+
+.journey-substep-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.journey-substep-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.journey-substep-btn.is-active,
+.journey-substep-btn:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.journey-subpanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  animation: fadeSubPanel 260ms var(--ease-editorial);
+}
+
+.journey-subpanel--columns {
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  gap: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+@keyframes fadeSubPanel {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.career-chapter-milestone {
+  margin-top: 0.35rem;
+  font-family: var(--font-hand);
+  font-size: 1.28rem;
+  color: var(--clay-green);
+  transition: opacity 280ms ease, transform 280ms var(--ease-editorial);
+}
+
+.is-muted-step {
+  opacity: 0.28;
+}
+
+.is-revealed {
+  opacity: 1;
+}
+
+.career-chapter-subblock {
+  transition: opacity 280ms ease;
+}
+
+.career-subblock-heading {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+}
+
+.career-subblock-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.career-subblock-list li {
+  font-size: 0.95rem;
+  line-height: 1.48;
+  color: var(--ink-soft);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.career-subblock-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.career-chapter-closing {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  max-width: 38ch;
+}
+
+.career-chapter-closing--prominent {
+  font-size: clamp(1.3rem, 1.85vw, 1.7rem);
+  padding-top: 0.4rem;
+}
+
+/* Continuous 400vw Miniature World Viewport */
+.career-journey-viewport {
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.career-journey-track {
+  position: relative;
+  display: flex;
+  width: 400vw;
+  height: 100%;
+  align-items: flex-end;
+  will-change: transform;
+}
+
+.career-scene-plate {
+  width: 100vw;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+.career-scene-plate__building {
+  width: 100vw;
+  flex-shrink: 0;
+}
+
+.career-scene-plate__figure.asset-stage--live .asset-stage__media {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.career-continuous-ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2.35rem;
+  height: 1px;
+  background-color: var(--ink-soft);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Layered Walking Avatar Pass (`A25`) — Grounded directly on the clay stone sidewalk */
+.career-avatar-layer {
+  position: absolute;
+  left: 34%;
+  bottom: 7.75vw;
+  z-index: 8;
+  pointer-events: none;
+  transition: transform 240ms var(--ease-editorial);
+}
+
+.career-avatar-figure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-avatar-layer__img {
+  width: clamp(5.15rem, 7.5vw, 7.15rem);
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 3px rgba(23, 23, 21, 0.08));
+}
+
+.career-avatar-ground-shadow {
+  width: 58%;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(23, 23, 21, 0.22);
+  filter: blur(3px);
+  margin-top: -5px;
+  z-index: 1;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.career-avatar-layer.is-walking .career-avatar-ground-shadow {
+  transform: scaleX(1.12);
+  opacity: 0.17;
+}
+
+.career-avatar-proxy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.career-avatar-proxy__svg {
+  width: 4.5rem;
+  height: auto;
+}
+
+.career-avatar-layer.is-walking .career-avatar-proxy__svg {
+  animation: avatarStride 620ms ease-in-out infinite alternate;
+}
+
+@keyframes avatarStride {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.career-avatar-proxy__tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.66rem;
+  color: var(--muted);
+  background: var(--paper);
+  padding: 0.08rem 0.35rem;
+}
+
+/* Bottom Minimal Chapter Index */
+.career-journey-index {
+  position: relative;
+  z-index: 12;
+  max-width: var(--max-width);
+  width: 100%;
+  margin-inline: auto;
+  padding: 0.75rem var(--gutter-outer) 1.1rem;
+  border-top: 1px solid var(--rule-subtle);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  background-color: var(--paper);
+}
+
+.career-index-item {
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.career-index-item.is-current,
+.career-index-item:hover {
+  color: var(--ink);
+}
+
+.career-index-item__num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+}
+
+.career-index-item__name {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* VERTICAL CHAPTER STACK (Mobile < 960px & Reduced Motion) */
+.career-journey-vertical {
+  padding-block: clamp(3rem, 7vh, 5.5rem);
+  border-top: 1px solid var(--rule-subtle);
+}
+
+.career-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 9vh, 6.5rem);
+}
+
+.career-vertical-chapter {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.75rem var(--grid-gap);
+  padding-bottom: clamp(3rem, 6vh, 4.5rem);
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.career-vertical-chapter:last-child {
+  border-bottom: none;
+}
+
+.career-vertical-chapter__visual,
+.career-vertical-chapter__content {
+  grid-column: 1 / -1;
+}
+
+.career-vertical-chapter__figure.asset-stage--live {
+  aspect-ratio: 4 / 3 !important;
+}
+
+.career-vertical-chapter__figure.asset-stage--live .asset-stage__media {
+  object-fit: cover;
+  object-position: 73% bottom;
+}
+
+.career-vertical-chapter__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.career-chapter-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 03. RESUME & CONTACT */
+.resume-contact-section {
+  padding-block: clamp(5.5rem, 13vh, 10rem);
+}
+
+.resume-contact-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: end;
+}
+
+.resume-contact-main {
+  grid-column: 1 / 9;
+  display: flex;
+  flex-direction: column;
+  gap: 1.45rem;
+}
+
+.resume-contact-body {
+  max-width: 46ch;
+}
+
+.resume-contact-cta {
+  margin-top: 0.65rem;
+}
+
+.resume-contact-callback {
+  grid-column: 11 / 13;
+  justify-self: end;
+}
+
+.resume-callback-svg {
+  width: 4.5rem;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .about-intro-headline-wrap,
+  .about-intro-body-wrap,
+  .resume-contact-main {
+    grid-column: 1 / -1;
+  }
+
+  .resume-contact-callback {
+    display: none;
+  }
+}

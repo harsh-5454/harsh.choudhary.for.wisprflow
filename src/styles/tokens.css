@@ -1,0 +1,38 @@
+:root {
+  /* Approved Canvas & Ink Palette (`design.md` Section 1.1) */
+  --paper: #f8f7f3;
+  --paper-recessed: #f1efe9;
+  --white: #ffffff;
+  --ink: #171715;
+  --ink-soft: #2e2d29;
+  --muted: #686660; /* Tuned from #77756F for crisp WCAG AA legibility on #F8F7F3 */
+  --rule: #dad8d1;
+  --rule-subtle: #e6e4dd;
+
+  /* Selective Tactile Clay Accents */
+  --clay-green: #287a4b;
+  --clay-yellow: #d9c43b;
+  --clay-blue: #315e9a;
+  --clay-red: #b94e3e;
+
+  /* Typography Roles (`design.md` Section 1.2)
+   * Candidate specimen pairing active in Phase 1:
+   * Display: Bricolage Grotesque (optical size 96) — alternative loaded for Phase 2 comparison: 'Fraunces', serif
+   * Body: Plus Jakarta Sans
+   * Rare annotation: Caveat
+   */
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Layout & Rhythm Tokens */
+  --max-width: 1440px;
+  --gutter-outer: clamp(1.35rem, 6vw, 5.5rem);
+  --grid-gap: clamp(1.25rem, 2.2vw, 2rem);
+  --header-height: 5rem;
+
+  /* Motion Tokens */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
