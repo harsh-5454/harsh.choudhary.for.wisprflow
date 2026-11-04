@@ -239,22 +239,22 @@
 .wispr-drum-viewport {
   position: relative;
   width: 100%;
-  height: clamp(480px, 68vh, 640px);
+  height: clamp(540px, 76vh, 720px);
   overflow: hidden;
   display: flex;
   align-items: center;
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 16%,
-    black 84%,
+    black 8%,
+    black 92%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 16%,
-    black 84%,
+    black 8%,
+    black 92%,
     transparent 100%
   );
 }
@@ -265,7 +265,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(3rem, 5.5vh, 4.75rem);
+  gap: clamp(2.25rem, 3.8vh, 3.25rem);
   will-change: transform;
 }
 
@@ -279,18 +279,18 @@
 
 .wispr-drum-text {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.05vw, 2.05rem);
-  line-height: 1.34;
-  letter-spacing: -0.022em;
+  font-size: clamp(1.22rem, 1.8vw, 1.82rem);
+  line-height: 1.36;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0;
   transition: color 150ms ease;
 }
 
 .wispr-drum-item--closing .wispr-drum-text {
-  font-size: clamp(1.6rem, 2.5vw, 2.55rem);
-  line-height: 1.18;
-  letter-spacing: -0.026em;
+  font-size: clamp(1.5rem, 2.35vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.024em;
   max-width: 28ch;
 }
 
