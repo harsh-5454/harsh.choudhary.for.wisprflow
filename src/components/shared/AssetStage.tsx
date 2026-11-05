@@ -410,7 +410,7 @@ export const AssetStage: React.FC<AssetStageProps> = ({
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     observer.observe(videoEl);
@@ -458,7 +458,8 @@ export const AssetStage: React.FC<AssetStageProps> = ({
               muted
               loop
               playsInline
-              preload={priority ? 'metadata' : 'none'}
+              autoPlay
+              preload={priority ? 'auto' : 'metadata'}
               aria-label={asset.alt}
               onError={() => setMediaLoadFailed(true)}
               className="asset-stage__media"

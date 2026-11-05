@@ -34,3 +34,14 @@ dist-ssr
 # TypeScript
 *.tsbuildinfo
 .env*
+
+# Ephemeral test scripts screenshots
+scripts/*.png
+scripts/*.jpg
+scripts/*.webp
+!scripts/header_bricolage.png
+!scripts/header_current.png
+!scripts/header_fraunces.png
+!scripts/header_space_grotesk.png
+!scripts/header_syne.png
+!scripts/header_updated_full.png

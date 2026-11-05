@@ -15,7 +15,7 @@ All visual assets (`A01`–`A25`) and the resume document (`DOC-RESUME`) are gen
 - `why-me/why_me_character_emote_loop.webp` — **A06**: Seamless `6.38s` 44-pose `RGBA` stop-motion claymation emote loop
 - `why-me/reaction_{ownership,agency,curiosity,adaptability}.webp` — **A07–A10**: `RGBA` strength-selection reaction poses
 - `why-me/lore_{extreme_ownership,high_agency,curiosity,adaptability}_scene.webp` — **A11a–A11d**: `4:3` clay cutaway vignettes for Character Lore dossiers
-- `why-me/why_hire_me_scene.webp` — **A12**: Calm open studio workbench with completed sculptural prototype (`16:9`)
+- `why-me/why_hire_me_scene.webp` — **A12**: Transparent `RGBA` hand-sculpted plasticine Venn diagram linking business analytics, team collaboration, and code building (`1024:853`)
 - `beyond/object_{reading,building,football,training}.webp` — **A13–A16**: Transparent `RGBA` `1:1` sculptural objects with studio contact shadows
 - `career/career_world_panorama_master.webp` — **A20**: Continuous 4-building miniature panorama master (`16:9`)
 - `career/grant-thornton/career_grant_thornton_scene.webp` — **A21**: Chapter 01 Grant Thornton scene plate (`16:9`)

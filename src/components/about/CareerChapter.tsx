@@ -34,6 +34,7 @@ export const CareerChapter: React.FC<CareerChapterProps> = ({ chapter }) => {
 
       <div className="career-vertical-chapter__content">
         <p className="chapter-eyebrow">{chapter.eyebrow}</p>
+        {chapter.role && <p className="chapter-role">{chapter.role}</p>}
         <h2
           id={`chapter-heading-${chapter.id}`}
           className="display-h3 career-chapter-heading"
@@ -58,22 +59,52 @@ export const CareerChapter: React.FC<CareerChapterProps> = ({ chapter }) => {
             <h3 className="career-subblock-heading">
               {chapter.investmentsHeading}
             </h3>
-            <ul className="career-subblock-list">
+            <div
+              className="career-portfolio-logos-row career-portfolio-logos-row--vertical"
+              role="list"
+              aria-label={chapter.investmentsHeading}
+            >
               {chapter.investments.map((inv) => (
-                <li key={inv.name}>{inv.fullText}</li>
+                <div
+                  key={inv.name}
+                  role="listitem"
+                  className="career-portfolio-logo-item"
+                  title={inv.detail ? `${inv.name} — ${inv.detail}` : inv.name}
+                >
+                  {inv.logoSrc || inv.logoWebpSrc ? (
+                    <picture>
+                      {inv.logoWebpSrc && (
+                        <source srcSet={inv.logoWebpSrc} type="image/webp" />
+                      )}
+                      <img
+                        src={inv.logoSrc || inv.logoWebpSrc}
+                        alt={inv.name}
+                        className="career-portfolio-logo-img"
+                        loading="lazy"
+                      />
+                    </picture>
+                  ) : (
+                    <div className="career-portfolio-badge">
+                      <span className="career-portfolio-dot" />
+                      <strong className="career-portfolio-name">{inv.name}</strong>
+                    </div>
+                  )}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 
-        {chapter.writing && chapter.writingHeading && (
+        {chapter.writingList && chapter.writingHeading && (
           <div className="career-chapter-subblock">
             <h3 className="career-subblock-heading">
               {chapter.writingHeading}
             </h3>
             <ul className="career-subblock-list">
-              {chapter.writing.map((title) => (
-                <li key={title}>{title}</li>
+              {chapter.writingList.map((item) => (
+                <li key={item.title}>
+                  <strong>{item.title}</strong> — {item.subtitle}
+                </li>
               ))}
             </ul>
           </div>

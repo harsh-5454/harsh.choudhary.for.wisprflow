@@ -17,22 +17,41 @@ export interface CareerEntryItem {
   name: string;
   detail?: string;
   fullText: string;
+  logoSrc?: string;
+  logoWebpSrc?: string;
+}
+
+export interface SkillItem {
+  icon: string;
+  title: string;
+  subtitle?: string;
+}
+
+export interface WritingItem {
+  title: string;
+  subtitle: string;
+  url?: string;
 }
 
 export interface CareerChapterCopy {
   id: 'grant-thornton' | 'ian' | 'kalaari' | 'independent-building';
   number: string;
   company: string;
+  displayName: string;
+  role: string;
   eyebrow: string;
   heading: string;
   sceneAssetId: string;
   accentColor: string;
   paragraphs: string[];
   milestone?: string;
+  skillsHeading?: string;
+  skills?: SkillItem[];
   investmentsHeading?: string;
   investments?: CareerEntryItem[];
   writingHeading?: string;
   writing?: string[];
+  writingList?: WritingItem[];
   closing?: string;
 }
 
@@ -65,8 +84,9 @@ export const SITE_COPY = {
         "I first discovered Wispr Flow while covering AI at Kalaari and experimenting with new AI tools. I've followed the company ever since.",
         "I love the simplicity of the product, taking something as natural as voice and making it an intuitive interface for AI. I've also enjoyed following Tanay's thinking and the vision he's building towards.",
         "And Nimisha's journey, from cold-DMing Tanay to building and leading Wispr Flow India, is a great example of the kind of ownership and freedom to take initiative that I value in a team.",
+        "As AI commoditises most functions, growth remains wonderfully human: part storytelling, part psychology, part creativity, part data. I'm excited by the prospect of doing this alongside a stellar growth team.",
       ],
-      closingBold: "It's the kind of place I'd be excited to build in.",
+      closingBold: "Which is why Wispr Flow is exactly the kind of place I want to go next.",
     },
 
     whyMe: {
@@ -119,6 +139,10 @@ export const SITE_COPY = {
 
     whyHireMe: {
       heading: 'I can connect the dots between an idea and getting it done.',
+      headingLines: [
+        'I can connect the dots',
+        'between an idea and getting it done.',
+      ],
       paragraphs: [
         'Venture capital taught me to understand businesses, markets and what makes them tick. Working with founders gave me a closer look at the realities of building one.',
         "I've also been experimenting with product thinking and building with AI tools.",
@@ -138,7 +162,7 @@ export const SITE_COPY = {
       football:
         "I'm an avid FC Barcelona supporter and football fan. The less said about the emotional rollercoaster, the better.",
       trainingQuestion:
-        'Also, Does deadlifting 100 kg and running a sub-30-minute 5K get me any brownie points?',
+        'Also, does deadlifting 100 kg and running a sub-30-minute 5K get me any brownie points?',
     },
 
     aboutBridge: {
@@ -152,7 +176,7 @@ export const SITE_COPY = {
     intro: {
       heading:
         'A somewhat unconventional career path (at least as per my parents).',
-      body: "Studied Science in School then decided to study finance in college, then consulting to venture capital and independent building. I like doing things that interest and challenge me. Here's where I've been and a little of what I've done along the way.",
+      body: "Studied science in school, but chose finance over engineering in college. From there, I found my way through consulting, venture capital, and eventually independent building. I've always been drawn to things that interest me, challenge me, or take me somewhere unfamiliar. Here's a little of that journey and what I've done along the way.",
     },
 
     chapters: [
@@ -160,40 +184,48 @@ export const SITE_COPY = {
         id: 'grant-thornton',
         number: '01 / 04',
         company: 'GRANT THORNTON',
+        displayName: 'Grant Thornton',
+        role: '',
         eyebrow: '01 / 04 · GRANT THORNTON',
-        heading: 'Where it started.',
+        heading: 'Where I learnt the fundamentals.',
         sceneAssetId: 'A21',
         accentColor: 'var(--clay-green)',
         paragraphs: [
-          'My first professional stint, working across consulting assignments for clients across diverse industries. It gave me a foundation in understanding businesses and approaching problems analytically.',
+          'My first professional chapter. Built my foundation in finance, business analysis and structured problem-solving before moving into the startup ecosystem.',
         ],
         milestone:
-          'A little milestone: Started leading projects within my first six months.',
+          'A small milestone- started leading projects individually 6 months into the job.',
       },
       {
         id: 'ian',
         number: '02 / 04',
         company: 'INDIAN ANGEL NETWORK',
+        displayName: 'Indian Angel Network',
+        role: '',
         eyebrow: '02 / 04 · INDIAN ANGEL NETWORK',
-        heading: 'A first look at startups / VC.',
+        heading: 'My first step into venture capital.',
         sceneAssetId: 'A22',
         accentColor: 'var(--clay-blue)',
         paragraphs: [
-          'I moved closer to the startup ecosystem, evaluating early-stage companies across sectors and getting a first-hand look at what it takes to build a business.',
+          'Worked across multiple sectors and got my first exposure to early-stage investing. Learnt to evaluate businesses, understand founders and look at opportunities from an investor’s perspective.',
         ],
-        investmentsHeading: 'Selected investments:',
+        investmentsHeading: 'Investments worked on:',
         investments: [
           {
             name: 'OnFinance',
             detail: 'AI agents for BFSI regulatory workflows.',
             fullText: 'OnFinance — AI agents for BFSI regulatory workflows.',
+            logoSrc: '/assets/career/investments/logo_onfinance.png',
+            logoWebpSrc: '/assets/career/investments/logo_onfinance.webp',
           },
           {
             name: 'Serigen',
             detail:
-              'A life-sciences company developing tissue-regeneration products.',
+              'Life-sciences startup developing tissue-regeneration products.',
             fullText:
-              'Serigen — A life-sciences company developing tissue-regeneration products.',
+              'Serigen — Life-sciences startup developing tissue-regeneration products.',
+            logoSrc: '/assets/career/investments/logo_serigen.png',
+            logoWebpSrc: '/assets/career/investments/logo_serigen.webp',
           },
         ],
       },
@@ -201,39 +233,53 @@ export const SITE_COPY = {
         id: 'kalaari',
         number: '03 / 04',
         company: 'KALAARI CAPITAL',
+        displayName: 'Kalaari Capital',
+        role: 'VC Fellow',
         eyebrow: '03 / 04 · KALAARI CAPITAL',
-        heading: 'Two years in venture capital.',
+        heading: 'From understanding businesses to backing builders.',
         sceneAssetId: 'A23',
         accentColor: 'var(--clay-green)',
         paragraphs: [
-          'I covered AI and gaming, working across sourcing, due diligence, executing investments, and portfolio support.',
-          'I assessed hundreds of opportunities and executed 3 investments',
-          'Beyond investing, I worked on partnerships, portfolio initiatives, publishing thought leadership, and organizing amazing events.',
+          'Spent two years covering AI and gaming, sourcing and evaluating startups, executing investments and working closely with founders. From diligence to portfolio support, a closer look at what it takes to build a company.',
         ],
-        investmentsHeading: 'Selected investments:',
+        investmentsHeading: 'Investments worked on:',
         investments: [
           {
             name: 'Pascal Labs',
             detail: 'AI knowledge worker for public equity investors.',
             fullText:
               'Pascal Labs — AI knowledge worker for public equity investors.',
+            logoSrc: '/assets/career/investments/logo_pascal.png',
+            logoWebpSrc: '/assets/career/investments/logo_pascal.webp',
           },
           {
             name: 'Superbryn',
             detail: 'Evaluation and observability for voice AI.',
             fullText:
               'Superbryn — Evaluation and observability for voice AI.',
+            logoSrc: '/assets/career/investments/logo_superbryn.png',
+            logoWebpSrc: '/assets/career/investments/logo_superbryn.webp',
           },
           {
             name: 'Triple Tap',
             detail: 'Hybrid-casual mobile games studio.',
             fullText: 'Triple Tap — Hybrid-casual mobile games studio.',
+            logoSrc: '/assets/career/investments/logo_tripletap.png',
+            logoWebpSrc: '/assets/career/investments/logo_tripletap.webp',
           },
         ],
-        writingHeading: 'Selected writing:',
-        writing: [
-          'India Alpha: The Techade of Opportunity.',
-          'The New Wave of AI Agents.',
+        writingHeading: 'PUBLISHED WRITING',
+        writingList: [
+          {
+            title: 'India Alpha: The Techade of Opportunity',
+            subtitle: 'Venture capital thesis on Indian tech evolution',
+            url: '#',
+          },
+          {
+            title: 'The New Wave of AI Agents',
+            subtitle: 'Analysis of autonomous software architectures',
+            url: '#',
+          },
         ],
         closing:
           "Early-stage investing meant doing a bit of everything. That's probably what I enjoyed most.",
@@ -241,16 +287,15 @@ export const SITE_COPY = {
       {
         id: 'independent-building',
         number: '04 / 04',
-        company: 'INDEPENDENT BUILDING',
-        eyebrow: '04 / 04 · INDEPENDENT BUILDING',
-        heading: 'From evaluating ideas to trying to build one.',
+        company: 'THE GARAGE',
+        displayName: 'The Garage',
+        role: 'Exploring · Experimenting · Building',
+        eyebrow: '04 / 04 · THE GARAGE — INDEPENDENT',
+        heading: 'Currently, making things.',
         sceneAssetId: 'A24',
         accentColor: 'var(--clay-red)',
         paragraphs: [
-          'After Kalaari, I decided to take a shot at the founder journey.',
-          'I set out to build an AI-native workspace for VCs. I spoke to users, explored their workflows and built prototypes to bring the idea to life.',
-          'Along the way, I wore just about every hat – founder, product manager, designer, coder, and everything in between.',
-          'Eventually, I decided to sunset the project for a few different reasons.',
+          'After years of evaluating businesses and working with founders, I explored the other side of the table: experimenting with product thinking, building with AI tools and learning by doing. Less investing in ideas, more trying to build them.',
         ],
         closing:
           "It didn't become a company, but it gave me something else: a much closer understanding of what it takes to go from identifying a problem to trying to build a solution.",
@@ -258,15 +303,15 @@ export const SITE_COPY = {
     ] satisfies CareerChapterCopy[],
 
     resumeContact: {
-      heading: "That's my story in a nutshell / gist.",
-      body: "There's plenty more I'd like to learn and build. If something here resonates, let's talk.",
+      heading: "That's my story in a nutshell.",
+      body: "These are just a few highlights; there's plenty more to the story, and even more I'd like to learn and build. If something resonates, let's talk.",
       linkText: 'Download resume →',
     },
   },
 
   footer: {
     heading: "Let's talk.",
-    body: "If you think there's a fit at Wispr Flow or just want to talk about AI, products, investing or football I'd love to hear from you.",
+    body: "If you think there's a fit at Wispr Flow, I'm super excited to join the team.",
     email: 'harshc.2802@gmail.com',
     linkedinDisplay: 'linkedin.com/in/harshchoudhary54/',
     linkedinUrl: 'https://www.linkedin.com/in/harshchoudhary54/',

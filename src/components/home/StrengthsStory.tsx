@@ -1,34 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { WHY_ME_REACTION_SOURCES } from '../../config/assets';
+import React, { useState } from 'react';
 import { SITE_COPY, StrengthItem } from '../../data/copy';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import { AssetStage } from '../shared/AssetStage';
 import { EditorialSection } from '../shared/EditorialSection';
 import { CharacterLorePanel } from './CharacterLorePanel';
 
-const IDLE_EMOTE_SEQUENCE = [
-  'Idle stance',
-  'Looking around',
-  'Subtle shrug',
-  'Thoughtful gesture',
-  'Confident nod',
-  'Brief celebratory gesture',
-] as const;
-
-/**
- * Qualitative tactile bar widths (visual rhythm only — never numerical scores,
- * percentages, rankings, or HUD stats per `emergent_master_prompt.md` Section 5).
- */
-const QUALITATIVE_BAR_SPANS: Record<StrengthItem['id'], string> = {
-  'extreme-ownership': '88%',
-  'high-agency': '84%',
-  curiosity: '92%',
-  adaptability: '86%',
+const CLAY_ICONS: Record<StrengthItem['id'], { src: string; alt: string }> = {
+  'extreme-ownership': {
+    src: '/assets/why-me/clay_icon_ownership.png',
+    alt: 'Sculpted green clay icon for extreme ownership',
+  },
+  'high-agency': {
+    src: '/assets/why-me/clay_icon_agency.png',
+    alt: 'Sculpted orange crossed tools clay icon for high agency',
+  },
+  curiosity: {
+    src: '/assets/why-me/clay_icon_curiosity.png',
+    alt: 'Sculpted purple binoculars clay icon for curiosity',
+  },
+  adaptability: {
+    src: '/assets/why-me/clay_icon_adaptability.png',
+    alt: 'Sculpted blue open book clay icon for adaptability',
+  },
 };
 
 export const StrengthsStory: React.FC = () => {
   const strengths = SITE_COPY.home.whyMe.strengths;
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   const [selectedId, setSelectedId] = useState<StrengthItem['id']>(
     strengths[0].id
@@ -36,46 +32,6 @@ export const StrengthsStory: React.FC = () => {
   const [openLoreStrength, setOpenLoreStrength] = useState<StrengthItem | null>(
     null
   );
-  const [emoteIndex, setEmoteIndex] = useState<number>(0);
-  const [emotePaused, setEmotePaused] = useState<boolean>(false);
-  const [reactionFlash, setReactionFlash] = useState<string | null>(null);
-  const [reactionOverrideSrc, setReactionOverrideSrc] = useState<string | null>(
-    null
-  );
-
-  const activeStrength =
-    strengths.find((s) => s.id === selectedId) ?? strengths[0];
-
-  // Independent character idle/emote loop (not tied to scroll)
-  useEffect(() => {
-    if (prefersReducedMotion || emotePaused) return;
-    const timer = window.setInterval(() => {
-      setEmoteIndex((prev) => (prev + 1) % IDLE_EMOTE_SEQUENCE.length);
-    }, 2800);
-    return () => window.clearInterval(timer);
-  }, [prefersReducedMotion, emotePaused]);
-
-  const handleSelectStrength = (item: StrengthItem, idx: number) => {
-    setSelectedId(item.id);
-    if (!prefersReducedMotion) {
-      setEmoteIndex((idx + 3) % IDLE_EMOTE_SEQUENCE.length);
-      setReactionFlash(item.emoteCue);
-      setReactionOverrideSrc(WHY_ME_REACTION_SOURCES[item.id] ?? null);
-    }
-  };
-
-  useEffect(() => {
-    if (!reactionFlash) return;
-    const timeout = window.setTimeout(() => {
-      setReactionFlash(null);
-      setReactionOverrideSrc(null);
-    }, 1800);
-    return () => window.clearTimeout(timeout);
-  }, [reactionFlash]);
-
-  const currentEmoteLabel = prefersReducedMotion
-    ? 'Static pose (reduced motion)'
-    : reactionFlash || IDLE_EMOTE_SEQUENCE[emoteIndex];
 
   return (
     <EditorialSection
@@ -90,110 +46,97 @@ export const StrengthsStory: React.FC = () => {
       </div>
 
       <div className="why-me-stage">
-        {/* Left: One full-body clay/plasticine avatar running independent emote loop */}
+        {/* Left: Plasticine character 360-degree rotation video */}
         <div className="why-me-character-col">
           <AssetStage
             assetId="A06"
             proxyVariant="why-me-character"
-            activeAccent={activeStrength.accentVar}
-            emoteStateLabel={currentEmoteLabel}
-            emoteStepIndex={emoteIndex}
-            paused={emotePaused}
-            overrideSrc={reactionOverrideSrc}
             frameless
-            className={`why-me-character-figure ${
-              reactionFlash ? 'is-reacting' : ''
-            }`}
+            className="why-me-character-figure"
           />
-
-          {!prefersReducedMotion && (
-            <div className="why-me-loop-controls">
-              <button
-                type="button"
-                className="subtle-text-control"
-                onClick={() => setEmotePaused((p) => !p)}
-                aria-pressed={emotePaused}
-              >
-                {emotePaused ? 'Resume character loop' : 'Pause character loop'}
-              </button>
-            </div>
-          )}
         </div>
 
-        {/* Right: Four qualitative strength attributes + active verbatim detail + lore trigger */}
+        {/* Right: Character Powers / Abilities in authentic claymation style */}
         <div className="why-me-attributes-col">
-          <div
-            className="strength-attributes-list"
-            role="listbox"
-            aria-label="Personal strengths"
-          >
-            {strengths.map((item, idx) => {
-              const isSelected = item.id === selectedId;
-              return (
-                <div
-                  key={item.id}
-                  className={`strength-row ${isSelected ? 'is-selected' : ''}`}
-                  style={
-                    {
-                      '--strength-accent': item.accentVar,
-                      '--bar-span': QUALITATIVE_BAR_SPANS[item.id],
-                    } as React.CSSProperties
-                  }
-                >
-                  <div className="strength-row__top">
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={isSelected}
-                      onClick={() => handleSelectStrength(item, idx)}
-                      className="strength-row__select"
-                    >
-                      <span className="strength-row__title">{item.title}</span>
-                      <span className="strength-row__bar-track" aria-hidden="true">
-                        <span className="strength-row__bar-fill" />
-                      </span>
-                    </button>
+          <div className="character-powers-header">
+            <h3 className="character-powers-heading">Character Powers / Abilities</h3>
+          </div>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleSelectStrength(item, idx);
-                        setOpenLoreStrength(item);
-                      }}
-                      className="strength-row__lore-trigger"
-                      aria-haspopup="dialog"
-                    >
-                      <span>{SITE_COPY.home.whyMe.loreAffordance}</span>
-                      <span aria-hidden="true" className="lore-arrow">
-                        ↗
-                      </span>
-                    </button>
+          <div
+            className="character-powers-list"
+            role="region"
+            aria-label="Character Powers and Abilities"
+          >
+            {strengths.map((item) => {
+              const icon = CLAY_ICONS[item.id];
+              return (
+                <div key={item.id} className="clay-power-row">
+                  <div className="clay-power-row__icon-tile" aria-hidden="true">
+                    <img
+                      src={icon.src}
+                      alt={icon.alt}
+                      className="clay-power-row__icon-img"
+                      loading="lazy"
+                    />
                   </div>
 
-                  {/* Stable in-flow verbatim description reveal */}
-                  <div
-                    className={`strength-row__detail ${
-                      isSelected ? 'is-expanded' : ''
-                    }`}
-                  >
-                    <p className="strength-row__description">{item.description}</p>
+                  <div className="clay-power-row__main">
+                    <div className="clay-power-row__top">
+                      <span className="clay-power-row__title">{item.title}</span>
+                      <span
+                        className="clay-power-row__score"
+                        aria-label="Power level: 9.5 out of 10"
+                      >
+                        9.5/10
+                      </span>
+                    </div>
+
+                    <div className="clay-power-row__bar-track" aria-hidden="true">
+                      <div
+                        className={`clay-power-row__bar-fill clay-power-row__bar-fill--${item.id}`}
+                        style={{ width: '95%' }}
+                      />
+                    </div>
+
+                    <p className="clay-power-row__description">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          <p className="why-me-closing-line">
-            {SITE_COPY.home.whyMe.closingLine}
-          </p>
+          {/* Single "Explore character lore" button with previous clean editorial design */}
+          <div className="why-me-single-action">
+            <button
+              type="button"
+              onClick={() => {
+                const active =
+                  strengths.find((s) => s.id === selectedId) ?? strengths[0];
+                setOpenLoreStrength(active);
+              }}
+              className="why-me-lore-trigger"
+              aria-haspopup="dialog"
+            >
+              <span>{SITE_COPY.home.whyMe.loreAffordance}</span>
+              <span aria-hidden="true" className="lore-arrow">
+                ↗
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
       <CharacterLorePanel
         strength={openLoreStrength}
+        allStrengths={strengths}
+        onSelectStrength={(item) => {
+          setSelectedId(item.id);
+          setOpenLoreStrength(item);
+        }}
         onClose={() => setOpenLoreStrength(null)}
       />
     </EditorialSection>
   );
 };
-

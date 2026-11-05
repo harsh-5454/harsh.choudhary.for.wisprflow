@@ -6,8 +6,12 @@
 
 /* 01. ABOUT INTRODUCTION */
 .about-intro-section {
-  padding-top: calc(var(--header-height) + clamp(2rem, 5vh, 4rem));
-  padding-bottom: clamp(3rem, 7vh, 5.5rem);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + clamp(1.5rem, 3vh, 3rem));
+  padding-bottom: clamp(3rem, 6vh, 5rem);
 }
 
 .about-intro-grid {
@@ -52,123 +56,147 @@
   stroke-width: 1.2;
 }
 
-/* 02. HORIZONTAL CAREER JOURNEY — DESKTOP PINNED STAGE */
+/* 02. HORIZONTAL CAREER JOURNEY — REFINED CINEMATIC MINIATURE WORLD */
+.career-journey-pinned-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
 .career-journey-stage {
   position: relative;
   width: 100%;
-  height: 100svh;
-  min-height: 42rem;
+  height: 100vh;
+  min-height: 48rem;
   overflow: hidden;
-  background-color: var(--paper);
-  border-top: 1px solid var(--rule-subtle);
-  border-bottom: 1px solid var(--rule-subtle);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.career-journey-backdrop {
-  position: absolute;
-  left: 0;
-  bottom: 3.5rem;
-  width: 160%;
-  height: 34%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.career-journey-backdrop__svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Stable HTML Editorial Overlay in Upper-Left Negative Space (`design.md` Section 3.3) */
-.career-journey-overlay-shell {
-  position: absolute;
-  top: calc(var(--header-height) + 1rem);
-  left: 0;
-  right: 0;
+/* ==========================================================================
+   UPPER ZONE: Fixed Career Information & Supporting Media (55–60% of viewport)
+   ========================================================================== */
+.career-upper-zone {
+  position: relative;
   z-index: 10;
   width: 100%;
-  max-width: var(--max-width);
+  max-width: var(--max-width, 1240px);
   margin-inline: auto;
-  padding-inline: var(--gutter-outer);
-  pointer-events: none;
+  padding: clamp(4.25rem, 8vh, 5.5rem) var(--gutter-outer) 0.5rem;
+  box-sizing: border-box;
 }
 
-.career-journey-overlay {
-  pointer-events: auto;
-  max-width: min(33.5rem, 42vw);
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  padding: 0.25rem 1.25rem 0.65rem 0;
-}
-
-.journey-overlay__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.journey-overlay__header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.chapter-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.career-chapter-heading {
-  margin-bottom: 0.15rem;
-}
-
-.journey-substep-tabs {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.journey-substep-btn {
-  background: none;
-  border: none;
-  padding: 0.15rem 0;
-  font-size: 0.76rem;
-  color: var(--muted);
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  transition: color 180ms ease, border-color 180ms ease;
-}
-
-.journey-substep-btn.is-active,
-.journey-substep-btn:hover {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
-}
-
-.journey-subpanel {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  animation: fadeSubPanel 260ms var(--ease-editorial);
-}
-
-.journey-subpanel--columns {
+.career-upper-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.95fr;
-  gap: 1.5rem;
-  padding-top: 0.25rem;
+  grid-template-columns: minmax(360px, 1.15fr) minmax(320px, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
 }
 
-@keyframes fadeSubPanel {
+/* Left Column: Narrative */
+.career-left-column {
+  display: flex;
+  flex-direction: column;
+  animation: careerContentFade 280ms var(--ease-editorial);
+}
+
+.career-heading-group {
+  margin-bottom: 0.75rem;
+}
+
+.career-company-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #171715;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.career-role-title {
+  font-size: 0.94rem;
+  font-weight: 450;
+  color: #71716b;
+  margin: 0.25rem 0 0;
+}
+
+.career-editorial-headline-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  margin-block: 0.65rem 1rem;
+}
+
+.career-editorial-headline {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 2.6vw, 2.65rem);
+  line-height: 1.14;
+  font-weight: 700;
+  color: #171715;
+  letter-spacing: -0.03em;
+  margin: 0;
+  max-width: 19ch;
+}
+
+.career-headline-accent-svg {
+  width: 28px;
+  height: 18px;
+  margin-left: 0.4rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.career-narrative-body {
+  font-size: clamp(0.92rem, 1.02vw, 0.98rem);
+  line-height: 1.6;
+  color: #4b4b46;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.career-narrative-secondary {
+  color: #71716b;
+  font-size: 0.92rem;
+}
+
+.career-chapter-milestone {
+  margin-top: 0.75rem;
+  font-family: var(--font-hand, var(--font-body));
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: #15803d;
+  letter-spacing: -0.01em;
+}
+
+.career-closing-takeaway {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: #55554f;
+  font-style: italic;
+  border-left: 2px solid #7c3aed;
+  padding-left: 0.85rem;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* Right Column: Supporting Information */
+.career-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.65rem;
+  padding-top: 0.35rem;
+  animation: careerContentFade 280ms var(--ease-editorial);
+}
+
+@keyframes careerContentFade {
   from {
-    opacity: 0;
-    transform: translateY(6px);
+    opacity: 0.4;
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
@@ -176,87 +204,257 @@
   }
 }
 
-.career-chapter-milestone {
+.career-support-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.career-support-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8e8e86;
+}
+
+.career-skills-grid {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+}
+
+.career-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.clay-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: #f3effe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.08);
+  flex-shrink: 0;
+}
+
+.clay-icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.career-skill-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.84rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #2b2b28;
+}
+
+/* Published Writing Card */
+.career-writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.career-writing-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 8px;
+  transition: background-color 180ms ease;
+}
+
+.career-writing-card:hover {
+  background-color: rgba(23, 23, 21, 0.03);
+}
+
+.clay-doc-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background-color: #fcf9f4;
+  border: 1px solid #ede8de;
+  box-shadow: 0 2px 4px rgba(23, 23, 21, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clay-doc-svg {
+  width: 22px;
+  height: 25px;
+}
+
+.career-writing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.career-writing-title {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #171715;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.career-ext-arrow {
+  font-size: 0.82rem;
+  color: #7c3aed;
+  font-weight: 400;
+}
+
+.career-writing-subtitle {
+  font-size: 0.82rem;
+  color: #71716b;
+}
+
+/* Portfolio Companies */
+.career-portfolio-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.career-portfolio-logos-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.2rem;
+}
+
+.career-portfolio-logo-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.career-portfolio-logo-item:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+.career-portfolio-logo-img {
+  height: clamp(34px, 3.4vw, 42px);
+  width: auto;
+  max-width: 155px;
+  object-fit: contain;
+  display: block;
+}
+
+.career-portfolio-logos-row--vertical {
+  gap: 1rem;
   margin-top: 0.35rem;
-  font-family: var(--font-hand);
-  font-size: 1.28rem;
-  color: var(--clay-green);
-  transition: opacity 280ms ease, transform 280ms var(--ease-editorial);
-}
-
-.is-muted-step {
-  opacity: 0.28;
-}
-
-.is-revealed {
-  opacity: 1;
-}
-
-.career-chapter-subblock {
-  transition: opacity 280ms ease;
 }
 
 .career-subblock-heading {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 0.45rem;
+  color: #8e8e86;
+  margin: 0;
 }
 
-.career-subblock-list {
-  list-style: none;
-  padding: 0;
+.career-investments-compact-list {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.55rem;
 }
 
-.career-subblock-list li {
-  font-size: 0.95rem;
-  line-height: 1.48;
-  color: var(--ink-soft);
-  padding-left: 1.2rem;
+.career-investment-compact-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.career-portfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  background-color: #f3effe;
+  color: #171715;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.career-portfolio-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #7c3aed;
+}
+
+.career-portfolio-name {
+  font-weight: 600;
+}
+
+.career-portfolio-detail {
+  color: #5b5b55;
+  font-size: 0.86rem;
+}
+
+/* ==========================================================================
+   LOWER ZONE: Centered Miniature Building Scene & Parallax Landscape
+   ========================================================================== */
+.career-lower-zone {
   position: relative;
-}
-
-.career-subblock-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-}
-
-.career-chapter-closing {
-  margin-top: 0.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
-  line-height: 1.28;
-  letter-spacing: -0.018em;
-  color: var(--ink);
-  max-width: 38ch;
-}
-
-.career-chapter-closing--prominent {
-  font-size: clamp(1.3rem, 1.85vw, 1.7rem);
-  padding-top: 0.4rem;
-}
-
-/* Continuous 400vw Miniature World Viewport */
-.career-journey-viewport {
-  position: relative;
-  z-index: 4;
   flex: 1;
   width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
 }
 
-.career-journey-track {
+/* Layer 2: Background Trees Scenery */
+.career-scenery-track {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+  display: flex;
+  align-items: flex-end;
+  height: clamp(170px, 26vh, 240px);
+}
+
+.career-scenery-track__img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: left bottom;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Layer 3: Main 400vw Buildings Track — Exactly One Centered Destination per Stop */
+.career-buildings-track {
   position: relative;
+  z-index: 3;
   display: flex;
   width: 400vw;
   height: 100%;
@@ -264,153 +462,113 @@
   will-change: transform;
 }
 
-.career-scene-plate {
+/* Layer 4: Continuous Clay Stone Footpath Across the Street */
+.career-continuous-footpath {
+  position: absolute;
+  left: -50vw;
+  width: 500vw;
+  bottom: 0;
+  height: 25px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url('/assets/career/footpath_continuous_strip.webp');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: bottom left;
+}
+
+.career-building-station {
   width: 100vw;
   height: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 0;
-}
-
-.career-scene-plate__building {
-  width: 100vw;
-  flex-shrink: 0;
-}
-
-.career-scene-plate__figure.asset-stage--live .asset-stage__media {
-  object-fit: cover;
-  object-position: center bottom;
-}
-
-.career-continuous-ground {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 2.35rem;
-  height: 1px;
-  background-color: var(--ink-soft);
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-/* Layered Walking Avatar Pass (`A25`) — Grounded directly on the clay stone sidewalk */
-.career-avatar-layer {
-  position: absolute;
-  left: 34%;
-  bottom: 7.75vw;
-  z-index: 8;
-  pointer-events: none;
-  transition: transform 240ms var(--ease-editorial);
-}
-
-.career-avatar-figure {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.career-avatar-layer__img {
-  width: clamp(5.15rem, 7.5vw, 7.15rem);
-  height: auto;
+  padding-bottom: 2px;
+  box-sizing: border-box;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 2px 3px rgba(23, 23, 21, 0.08));
 }
 
-.career-avatar-ground-shadow {
-  width: 58%;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(23, 23, 21, 0.22);
-  filter: blur(3px);
-  margin-top: -5px;
-  z-index: 1;
-  transition: transform 200ms ease, opacity 200ms ease;
-}
-
-.career-avatar-layer.is-walking .career-avatar-ground-shadow {
-  transform: scaleX(1.12);
-  opacity: 0.17;
-}
-
-.career-avatar-proxy {
+.career-building-anchor {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
 }
 
-.career-avatar-proxy__svg {
-  width: 4.5rem;
-  height: auto;
+.career-building-image {
+  max-height: clamp(210px, 32vh, 280px);
+  width: auto;
+  max-width: clamp(340px, 46vw, 490px);
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 10px 20px rgba(23, 23, 21, 0.05));
+  user-select: none;
 }
 
-.career-avatar-layer.is-walking .career-avatar-proxy__svg {
-  animation: avatarStride 620ms ease-in-out infinite alternate;
-}
-
-@keyframes avatarStride {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-4px);
-  }
-}
-
-.career-avatar-proxy__tag {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.66rem;
-  color: var(--muted);
-  background: var(--paper);
-  padding: 0.08rem 0.35rem;
-}
-
-/* Bottom Minimal Chapter Index */
+/* Bottom Experience Toggle Bar Below Buildings */
 .career-journey-index {
   position: relative;
   z-index: 12;
-  max-width: var(--max-width);
+  max-width: var(--max-width, 1240px);
   width: 100%;
   margin-inline: auto;
-  padding: 0.75rem var(--gutter-outer) 1.1rem;
-  border-top: 1px solid var(--rule-subtle);
+  padding: 0.75rem var(--gutter-outer) 0.95rem;
+  border-top: 1px solid #ede8de;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  background-color: var(--paper);
+  gap: 1.25rem;
+  background-color: #ffffff;
 }
 
 .career-index-item {
   background: none;
   border: none;
-  padding: 0.25rem 0;
+  padding: 0.35rem 0 0.45rem;
   text-align: left;
   cursor: pointer;
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
-  color: var(--muted);
-  transition: color 180ms ease;
+  gap: 0.65rem;
+  color: #8e8e86;
+  border-bottom: 2px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
 }
 
-.career-index-item.is-current,
-.career-index-item:hover {
-  color: var(--ink);
+.career-index-item.is-current {
+  color: #171715;
+  border-bottom-color: #7c3aed;
+}
+
+.career-index-item:hover:not(.is-current) {
+  color: #171715;
 }
 
 .career-index-item__num {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
+  font-weight: 500;
 }
 
 .career-index-item__name {
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 1200px) {
+  .career-upper-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .career-editorial-headline {
+    font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+  }
+  .career-skills-grid {
+    gap: 1rem;
+  }
 }
 
 /* VERTICAL CHAPTER STACK (Mobile < 960px & Reduced Motion) */

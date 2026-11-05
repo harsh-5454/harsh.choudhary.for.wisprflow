@@ -18,7 +18,9 @@ I love the simplicity of the product, taking something as natural as voice and m
 
 And Nimisha's journey, from cold-DMing Tanay to building and leading Wispr Flow India, is a great example of the kind of ownership and freedom to take initiative that I value in a team.
 
-It's the kind of place I'd be excited to build in.
+As AI commoditises most functions, growth remains wonderfully human: part storytelling, part psychology, part creativity, part data. I'm excited by the prospect of doing this alongside a stellar growth team.
+
+Which is why Wispr Flow is exactly the kind of place I want to go next.
 
 ### 03. Why Me
 What I bring to the table?
@@ -54,7 +56,7 @@ I enjoy building small projects, usually because something annoys me enough to t
 
 I'm an avid FC Barcelona supporter and football fan. The less said about the emotional rollercoaster, the better.
 
-Also, Does deadlifting 100 kg and running a sub-30-minute 5K get me any brownie points?
+Also, does deadlifting 100 kg and running a sub-30-minute 5K get me any brownie points?
 
 ### 06. About
 There's a little more to the story.
@@ -70,7 +72,7 @@ Explore my journey →
 ### Introduction
 A somewhat unconventional career path (at least as per my parents).
 
-Studied Science in School then decided to study finance in college, then consulting to venture capital and independent building. I like doing things that interest and challenge me. Here's where I've been and a little of what I've done along the way.
+Studied science in school, but chose finance over engineering in college. From there, I found my way through consulting, venture capital, and eventually independent building. I've always been drawn to things that interest me, challenge me, or take me somewhere unfamiliar. Here's a little of that journey and what I've done along the way.
 
 ### 01. Grant Thornton
 Where it started.
@@ -84,7 +86,7 @@ A first look at startups / VC.
 
 I moved closer to the startup ecosystem, evaluating early-stage companies across sectors and getting a first-hand look at what it takes to build a business.
 
-Selected investments:
+Investments worked on:
 - OnFinance — AI agents for BFSI regulatory workflows.
 - Serigen — A life-sciences company developing tissue-regeneration products.
 
@@ -97,7 +99,7 @@ I assessed hundreds of opportunities and executed 3 investments
 
 Beyond investing, I worked on partnerships, portfolio initiatives, publishing thought leadership, and organizing amazing events.
 
-Selected investments:
+Investments worked on:
 - Pascal Labs — AI knowledge worker for public equity investors.
 - Superbryn — Evaluation and observability for voice AI.
 - Triple Tap — Hybrid-casual mobile games studio.
@@ -122,9 +124,9 @@ Eventually, I decided to sunset the project for a few different reasons.
 It didn't become a company, but it gave me something else: a much closer understanding of what it takes to go from identifying a problem to trying to build a solution.
 
 ### 05. Resume & Contact
-That's my story in a nutshell / gist.
+That's my story in a nutshell.
 
-There's plenty more I'd like to learn and build. If something here resonates, let's talk.
+These are just a few highlights; there's plenty more to the story, and even more I'd like to learn and build. If something resonates, let's talk.
 
 Download resume →
 
@@ -134,7 +136,7 @@ Download resume →
 
 Let's talk.
 
-If you think there's a fit at Wispr Flow — or just want to talk about AI, products, investing or football — I'd love to hear from you.
+If you think there's a fit at Wispr Flow, I'm super excited to join the team.
 
 - Email: harshc.2802@gmail.com
 - LinkedIn: linkedin.com/in/harshchoudhary54/

@@ -160,7 +160,7 @@
   letter-spacing: -0.018em;
   color: #0c0c0a;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 14px rgba(248, 247, 243, 0.9);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 14px rgba(255, 255, 255, 0.9);
 }
 
 /* 02. WHY WISPR FLOW — Kinetic Drum Roller Spread (Ref: Jump Cities Drum) */
@@ -196,7 +196,7 @@
 }
 
 .wispr-left {
-  grid-column: 1 / 6;
+  grid-column: 1 / 7;
   display: flex;
   align-items: center;
 }
@@ -211,16 +211,54 @@
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 72, 'wdth' 98;
   font-weight: 630;
-  font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+  font-size: clamp(2.2rem, 3.8vw, 4.2rem);
   line-height: 1.05;
   letter-spacing: -0.028em;
   color: var(--ink);
 }
 
+.wispr-heading-lockup {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 0.22em;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.wispr-heading-prefix {
+  display: inline-block;
+  line-height: 1;
+}
+
+.wispr-heading-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.wispr-heading-logo {
+  height: 0.98em;
+  width: auto;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: middle;
+  transform: translateY(0.04em);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.wispr-heading-suffix {
+  display: inline-block;
+  line-height: 1;
+  margin-left: 0.22em;
+}
+
 .wispr-right {
-  grid-column: 6 / 13;
+  grid-column: 7 / 13;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
@@ -232,7 +270,7 @@
   height: clamp(540px, 76vh, 720px);
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
@@ -254,7 +292,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(2.25rem, 3.8vh, 3.25rem);
   will-change: transform;
 }
@@ -268,20 +306,23 @@
 }
 
 .wispr-drum-text {
-  font-family: var(--font-display);
-  font-size: clamp(1.22rem, 1.8vw, 1.82rem);
-  line-height: 1.36;
-  letter-spacing: -0.02em;
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+  line-height: 1.54;
+  letter-spacing: -0.012em;
   color: var(--ink);
   margin: 0;
   transition: color 150ms ease;
 }
 
 .wispr-drum-item--closing .wispr-drum-text {
-  font-size: clamp(1.5rem, 2.35vw, 2.35rem);
-  line-height: 1.2;
-  letter-spacing: -0.024em;
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 2.1vw, 2.05rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 700;
   max-width: 28ch;
+  color: var(--clay-green);
 }
 
 /* Reduced motion fallback styling */
@@ -293,18 +334,37 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-inline: auto;
+  max-width: 44ch;
+}
+
+.wispr-section--reduced-motion .wispr-body-statement {
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+  line-height: 1.54;
+  letter-spacing: -0.012em;
+}
+
+.wispr-section--reduced-motion .wispr-closing-statement {
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 2.1vw, 2.05rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--clay-green);
 }
 
 /* 03. WHY ME — Character-Selection & Lore Interaction (`emergent_master_prompt.md` §5) */
 .why-me-section {
-  padding-block: clamp(6rem, 14vh, 11rem);
+  padding-top: clamp(2rem, 3.8vh, 3rem);
+  padding-bottom: clamp(2rem, 3.8vh, 3rem);
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .why-me-header {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
-  margin-bottom: clamp(3rem, 6.5vh, 5rem);
+  margin-bottom: 40px;
 }
 
 .why-me-heading {
@@ -318,6 +378,7 @@
   color: var(--ink);
   max-width: 18ch;
   text-wrap: balance;
+  margin-bottom: 0;
 }
 
 .why-me-stage {
@@ -328,230 +389,279 @@
 }
 
 .why-me-character-col {
-  grid-column: 1 / 6;
+  grid-column: 1 / 7;
   position: sticky;
-  top: calc(var(--header-height) + 2rem);
+  top: calc(var(--header-height) + 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .why-me-character-figure {
-  max-width: 24.5rem;
-  transition: transform 280ms var(--ease-editorial);
-}
-
-.why-me-character-figure.is-reacting {
-  transform: translateY(-3px);
-}
-
-.why-me-loop-controls {
-  margin-top: 0.65rem;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 1.25rem;
-}
-
-.subtle-text-control {
-  background: none;
+  width: 100%;
+  max-width: min(19rem, calc((100vh - var(--header-height) - 8rem) * 9 / 16));
+  aspect-ratio: 9 / 16;
+  margin-inline: auto;
   border: none;
-  padding: 0.2rem 0;
-  font-size: 0.78rem;
-  color: var(--muted);
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  transition: color 180ms ease, border-color 180ms ease;
+  background: transparent;
+  box-shadow: none;
 }
 
-.subtle-text-control:hover {
-  color: var(--ink);
-  border-color: var(--ink);
+.why-me-character-figure .asset-stage__media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
 }
 
 .why-me-attributes-col {
-  grid-column: 6 / 13;
-  padding-left: clamp(0rem, 2vw, 2rem);
+  grid-column: 7 / 13;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.strength-attributes-list {
-  border-top: 1px solid var(--rule);
+.character-powers-header,
+.character-powers-list,
+.why-me-single-action {
+  width: 100%;
+  max-width: 44ch;
 }
 
-.strength-row {
-  border-bottom: 1px solid var(--rule);
-  padding-block: 1.35rem;
-  transition: border-color 240ms ease;
+.character-powers-header {
+  margin-bottom: clamp(1.2rem, 2.2vh, 1.75rem);
 }
 
-.strength-row.is-selected {
-  border-bottom-color: var(--ink);
+.character-powers-heading {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 64, 'wdth' 100;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 2.35vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
 }
 
-.strength-row__top {
+.character-powers-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.1rem, 1.8vh, 1.5rem);
+}
+
+.clay-power-row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1rem, 1.4vw, 1.4rem);
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.clay-power-row__icon-tile {
+  flex-shrink: 0;
+  width: clamp(48px, 3.8vw, 56px);
+  height: clamp(48px, 3.8vw, 56px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  margin-top: 3px;
 }
 
-.strength-row__select {
-  flex: 1 1 16rem;
+.clay-power-row__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.clay-power-row__main {
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.clay-power-row__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  width: 100%;
+}
+
+.clay-power-row__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  font-size: clamp(1.15rem, 1.35vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+
+.clay-power-row__score {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Qualitative Tactile Clay Bar — Chunky matte rolled plasticine in soft warm trough */
+.clay-power-row__bar-track {
+  width: 100%;
+  height: 16px;
+  background: #ece8de;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 2px rgba(60, 50, 40, 0.08),
+    0 1px 1px rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.clay-power-row__bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  position: relative;
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.38),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.16),
+    0 1px 3px rgba(45, 35, 25, 0.12);
+  transition: width 900ms var(--ease-editorial);
+}
+
+/* Authentic matte plasticine colors matching the reference claymation style */
+.clay-power-row__bar-fill--extreme-ownership {
+  background: linear-gradient(180deg, #99c2a5 0%, #6d9f7a 50%, #4f7e5c 100%);
+}
+
+.clay-power-row__bar-fill--high-agency {
+  background: linear-gradient(180deg, #f7b278 0%, #eb8a43 50%, #c96b27 100%);
+}
+
+.clay-power-row__bar-fill--curiosity {
+  background: linear-gradient(180deg, #b294dc 0%, #8f6cc1 50%, #714d9f 100%);
+}
+
+.clay-power-row__bar-fill--adaptability {
+  background: linear-gradient(180deg, #7db3e6 0%, #5192ce 50%, #3873ac 100%);
+}
+
+.clay-power-row__description {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.05vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  width: 100%;
+  text-wrap: pretty;
+  margin: 0;
+}
+
+/* Revert Explore character lore button to the previous clean editorial design */
+.why-me-single-action {
+  margin-top: clamp(1.35rem, 2.5vh, 2rem);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.why-me-lore-trigger {
   background: none;
   border: none;
   padding: 0.25rem 0;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.strength-row__title {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 48;
-  font-size: clamp(1.35rem, 1.9vw, 1.8rem);
-  font-weight: 610;
-  letter-spacing: -0.02em;
-  color: var(--muted);
-  transition: color 220ms ease;
-}
-
-.strength-row.is-selected .strength-row__title,
-.strength-row__select:hover .strength-row__title {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  font-weight: 600;
   color: var(--ink);
-}
-
-/* Qualitative Tactile Strength Bar — No numbers, scores, or game HUD chrome */
-.strength-row__bar-track {
-  display: block;
-  width: 100%;
-  max-width: 22rem;
-  height: 5px;
-  background-color: var(--rule-subtle);
-  position: relative;
-  overflow: hidden;
-}
-
-.strength-row__bar-fill {
-  display: block;
-  height: 100%;
-  width: var(--bar-span, 85%);
-  background-color: var(--muted);
-  opacity: 0.35;
-  transform: scaleX(0.72);
-  transform-origin: left center;
-  transition:
-    transform 360ms var(--ease-editorial),
-    background-color 260ms ease,
-    opacity 260ms ease;
-}
-
-.strength-row.is-selected .strength-row__bar-fill {
-  background-color: var(--strength-accent, var(--clay-green));
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-.strength-row__lore-trigger {
-  background: none;
-  border: none;
-  padding: 0.35rem 0;
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: var(--ink-soft);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  border-bottom: 1px solid var(--rule);
+  gap: 0.35rem;
+  border-bottom: 1px solid var(--ink);
   transition: color 180ms ease, border-color 180ms ease;
 }
 
-.strength-row__lore-trigger:hover,
-.strength-row.is-selected .strength-row__lore-trigger {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
+.why-me-lore-trigger:hover {
+  color: var(--muted);
+  border-bottom-color: var(--muted);
 }
 
-.lore-arrow {
+.why-me-lore-trigger .lore-arrow {
   display: inline-block;
   transition: transform 200ms var(--ease-editorial);
 }
 
-.strength-row__lore-trigger:hover .lore-arrow {
+.why-me-lore-trigger:hover .lore-arrow {
   transform: translate(2px, -2px);
 }
 
-.strength-row__detail {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition:
-    grid-template-rows 300ms var(--ease-editorial),
-    opacity 260ms ease,
-    margin-top 300ms var(--ease-editorial);
-}
+/* ==========================================================================
+   03b. CLAY COMPUTER SCREEN & LORE WIKI WORKSTATION
+   ========================================================================== */
 
-.strength-row__detail.is-expanded {
-  grid-template-rows: 1fr;
-  opacity: 1;
-  margin-top: 1rem;
-}
-
-.strength-row__description {
-  overflow: hidden;
-  font-size: clamp(1.02rem, 1.12vw, 1.14rem);
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 50ch;
-}
-
-.why-me-closing-line {
-  margin-top: clamp(2.25rem, 5vh, 3.25rem);
-  font-family: var(--font-hand);
-  font-size: 1.35rem;
-  line-height: 1.3;
-  color: var(--ink-soft);
-}
-
-/* Character Lore Dossier Dialog (`modern-web-guidance` top-layer transitions) */
 .lore-dossier {
-  border: 1px solid var(--ink);
-  background: var(--paper);
+  border: none;
+  background: transparent;
   color: var(--ink);
   padding: 0;
-  width: min(92vw, 44rem);
-  max-height: 88svh;
+  width: min(95vw, 76rem);
+  height: min(92svh, 860px);
+  max-height: 92svh;
   margin: auto;
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(18px) scale(0.985);
   transition-property: opacity, transform, display, overlay;
-  transition-duration: 260ms;
-  transition-timing-function: var(--ease-editorial);
+  transition-duration: 280ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   transition-behavior: allow-discrete;
+  overflow: visible;
 }
 
 .lore-dossier[open]:where(:not([data-closing])) {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 
   @starting-style {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px) scale(0.985);
   }
 }
 
 .lore-dossier::backdrop {
-  background-color: rgba(23, 23, 21, 0);
-  transition-property: background-color, display, overlay;
-  transition-duration: 260ms;
+  background-color: rgba(18, 17, 15, 0);
+  backdrop-filter: blur(0px);
+  transition-property: background-color, backdrop-filter, display, overlay;
+  transition-duration: 280ms;
   transition-timing-function: ease-out;
   transition-behavior: allow-discrete;
 }
 
 .lore-dossier[open]:where(:not([data-closing]))::backdrop {
-  background-color: rgba(23, 23, 21, 0.38);
+  background-color: rgba(18, 17, 15, 0.62);
+  backdrop-filter: blur(4px);
 
   @starting-style {
-    background-color: rgba(23, 23, 21, 0);
+    background-color: rgba(18, 17, 15, 0);
+    backdrop-filter: blur(0px);
   }
 }
 
@@ -562,117 +672,1362 @@
   }
 }
 
-.lore-dossier__sheet {
-  padding: clamp(1.6rem, 3.5vw, 2.75rem);
-  border-top: 3px solid var(--dossier-accent, var(--clay-green));
+/* Clay Plasticine Computer Chassis */
+.clay-computer-chassis {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(168deg, #eae2d2 0%, #dcd1bd 42%, #cbbfa7 100%);
+  border-radius: clamp(24px, 3.2vw, 36px);
+  border: 3.5px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 35px 85px -15px rgba(18, 15, 11, 0.6),
+    0 16px 36px -10px rgba(0, 0, 0, 0.35),
+    inset 0 3px 5px rgba(255, 255, 255, 0.85),
+    inset 0 -6px 14px rgba(75, 60, 40, 0.28);
+  padding: clamp(10px, 1.6vw, 18px);
+  box-sizing: border-box;
 }
 
-.lore-dossier__header {
+/* Top Bezel: Clay Ventilation & Controls */
+.clay-computer-bezel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0.5rem 0.75rem 0.5rem;
+  flex-shrink: 0;
+}
+
+.clay-computer-vent-slits {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.clay-computer-vent-slits span {
+  display: inline-block;
+  width: 22px;
+  height: 4.5px;
+  background: rgba(90, 75, 55, 0.28);
+  border-radius: 9999px;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.clay-computer-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #d6cab3;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.clay-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2b7a4b;
+  box-shadow: 0 0 4px #2b7a4b;
+}
+
+.clay-badge-text {
+  font-family: monospace, var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4a3e2c;
+  text-transform: uppercase;
+}
+
+.clay-computer-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.clay-power-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(80, 68, 50, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.clay-led-light {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow:
+    0 0 10px #22c55e,
+    0 0 3px #86efac;
+  animation: clayLedPulse 3s infinite ease-in-out;
+}
+
+@keyframes clayLedPulse {
+  0%, 100% { opacity: 0.95; box-shadow: 0 0 10px #22c55e, 0 0 3px #86efac; }
+  50% { opacity: 0.7; box-shadow: 0 0 5px #22c55e, 0 0 2px #86efac; }
+}
+
+.clay-led-label {
+  font-size: 0.62rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: #3b3223;
+  letter-spacing: 0.05em;
+}
+
+.clay-close-keycap {
+  background: linear-gradient(145deg, #df5b4e, #c03d30);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.28),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.55),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.clay-close-keycap:hover {
+  filter: brightness(1.08);
+}
+
+.clay-close-keycap:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.clay-keycap-legend {
+  font-family: monospace, var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Deeply Recessed Screen Housing */
+.clay-computer-screen-housing {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #2a251e;
+  border-radius: clamp(16px, 2.2vw, 24px);
+  border: 3.5px solid #201b15;
+  box-shadow:
+    inset 0 10px 28px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.35),
+    0 2px 4px rgba(255, 255, 255, 0.45);
+  padding: clamp(6px, 1vw, 10px);
+  overflow: hidden;
+}
+
+/* Screen Glass Glare Sheen */
+.clay-screen-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 28%, transparent 50%);
+  pointer-events: none;
+  z-index: 5;
+  border-radius: inherit;
+}
+
+/* Inner Display Canvas (The Wiki) */
+.clay-computer-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #faf7f0;
+  border-radius: clamp(12px, 1.8vw, 18px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: inset 0 0 35px rgba(65, 50, 32, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbar for Screen */
+.clay-computer-screen::-webkit-scrollbar {
+  width: 10px;
+}
+.clay-computer-screen::-webkit-scrollbar-track {
+  background: #f0ebd9;
+}
+.clay-computer-screen::-webkit-scrollbar-thumb {
+  background: #cdbeaa;
+  border-radius: 9999px;
+  border: 2px solid #f0ebd9;
+}
+.clay-computer-screen::-webkit-scrollbar-thumb:hover {
+  background: #b5a48e;
+}
+
+/* Bottom Chin Bezel */
+.clay-computer-bezel-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.6rem 0.15rem 0.6rem;
+  flex-shrink: 0;
+}
+
+.clay-floppy-drive {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.clay-floppy-slot {
+  display: inline-block;
+  width: 54px;
+  height: 5.5px;
+  background: #252019;
+  border-radius: 2px;
+  box-shadow:
+    inset 0 2px 3px rgba(0, 0, 0, 0.6),
+    0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.clay-floppy-eject {
+  display: inline-block;
+  width: 9px;
+  height: 6px;
+  background: #a99c85;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.clay-computer-model {
+  font-family: monospace;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #72624b;
+}
+
+.clay-dial-cluster {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clay-knob {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d3c7b2, #b1a48c);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   WIKI PAGE INTERIOR (Screen Content)
+   ========================================================================== */
+
+/* Wiki Navbar */
+.wiki-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.4rem;
+  background: #f4eee1;
+  border-bottom: 1.5px solid #e2d7c3;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.wiki-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.wiki-navbar__emblem {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.wiki-navbar__title {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.wiki-navbar__tagline {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+
+.wiki-navbar__search {
+  flex: 1;
+  max-width: 22rem;
+  min-width: 12rem;
+}
+
+.wiki-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ffffff;
+  border: 1px solid #d4c8b2;
+  border-radius: 6px;
+  padding: 0.32rem 0.65rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.wiki-search-icon {
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
+
+.wiki-search-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  color: var(--ink);
+  outline: none;
+}
+
+.wiki-search-input::placeholder {
+  color: #9c917d;
+}
+
+.wiki-search-clear {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.wiki-navbar__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.wiki-nav-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.78rem;
+  font-family: var(--font-body);
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.wiki-nav-tab:hover {
+  background: #ffffff;
+  border-color: #d4c8b2;
+  color: var(--ink);
+}
+
+.wiki-nav-tab.is-active {
+  background: #ffffff;
+  border-color: #d4c8b2;
+  color: #2b7a4b;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Wiki Breadcrumbs & Status Bar */
+.wiki-breadcrumbs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1.4rem;
+  background: #fbf9f5;
+  border-bottom: 1px solid #ebd9c3;
+  font-size: 0.75rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.wiki-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.wiki-breadcrumbs .sep {
+  opacity: 0.5;
+}
+
+.wiki-breadcrumbs .current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.wiki-meta-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wiki-meta-badge {
+  background: #e6f4ea;
+  color: #137333;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid #ceead6;
+}
+
+.wiki-meta-date {
+  font-size: 0.7rem;
+}
+
+/* Notice Box */
+.wiki-notice-box {
+  margin: 1.1rem 1.4rem 0.5rem 1.4rem;
+  padding: 0.75rem 1rem;
+  background: #fbf5e8;
+  border: 1px solid #e8d5b5;
+  border-left: 4px solid #c2831f;
+  border-radius: 4px;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 1.25rem;
+  gap: 0.65rem;
 }
 
-.lore-dossier__kicker {
-  display: block;
+.wiki-notice-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.wiki-notice-text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #5c4728;
+}
+
+/* Main Wiki Layout (Two columns: Article + Infobox) */
+.wiki-layout {
+  display: flex;
+  gap: clamp(1.4rem, 2.4vw, 2.2rem);
+  padding: 1.25rem 1.4rem 2.5rem 1.4rem;
+  align-items: flex-start;
+}
+
+/* Article Left Column */
+.wiki-article {
+  flex: 1;
+  min-width: 0;
+}
+
+.wiki-article__header {
+  border-bottom: 1.5px solid #dcd1bd;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.wiki-article__title {
+  margin: 0 0 0.35rem 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.wiki-article__subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted, #666);
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+}
+
+/* Character Lore Traits Container */
+.wiki-traits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.wiki-trait-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.wiki-trait-section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.wiki-trait-title {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.28rem, 1.85vw, 1.55rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.wiki-trait-anchor {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #8b7d6b;
+}
+
+.wiki-special-ability-card {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  background: #f4eee1;
+  border-left: 3.5px solid #2b7a4b;
+  padding: 0.55rem 0.85rem;
+  border-radius: 4px;
+  margin-bottom: 1.15rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2c2825;
+}
+
+.wiki-special-ability-label {
+  font-weight: 700;
+  color: #2b7a4b;
+  flex-shrink: 0;
+}
+
+.wiki-special-ability-text {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.wiki-trait-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.wiki-trait-paragraph {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #38342e;
+}
+
+.wiki-trait-divider {
+  border: 0;
+  height: 1px;
+  background: #e2d7c3;
+  margin: 0.5rem 0;
+}
+
+/* Wiki Table of Contents */
+.wiki-toc {
+  background: #f4eee1;
+  border: 1px solid #ded3be;
+  border-radius: 6px;
+  padding: 0.85rem 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 26rem;
+}
+
+.wiki-toc__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.wiki-toc__title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.wiki-toc__toggle {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  color: #2762a4;
+  cursor: pointer;
+  padding: 0;
+}
+
+.wiki-toc__toggle:hover {
+  text-decoration: underline;
+}
+
+.wiki-toc__list,
+.wiki-toc__sublist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.wiki-toc__sublist {
+  padding-left: 1.15rem;
+}
+
+.wiki-toc__list li {
+  margin-bottom: 0.15rem;
+}
+
+.wiki-toc__list a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  color: #2762a4;
+  text-decoration: none;
+}
+
+.wiki-toc__list a:hover {
+  text-decoration: underline;
+}
+
+.wiki-toc__num {
+  font-family: monospace;
+  font-size: 0.76rem;
+  color: #6b7280;
+}
+
+/* Wiki Sections */
+.wiki-section {
+  margin-bottom: 2.5rem;
+}
+
+.wiki-section__title-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #dcd1bd;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.wiki-section__title {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.wiki-edit-anchor {
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #8b7d6b;
+}
+
+.wiki-section__intro {
+  font-size: 0.88rem;
+  line-height: 1.58;
+  color: #4a5568;
+  margin-bottom: 1.1rem;
+}
+
+/* Section 1: Principles Grid */
+.wiki-principles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.wiki-principle-card {
+  background: #ffffff;
+  border: 1px solid #e2d7c3;
+  border-left: 5px solid var(--principle-accent, var(--ink));
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(40, 30, 20, 0.04);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.wiki-principle-card.is-active-section {
+  box-shadow: 0 4px 16px rgba(40, 30, 20, 0.1);
+  background: #fffffb;
+}
+
+.wiki-principle-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.wiki-principle-card__num {
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--principle-accent, var(--ink));
+}
+
+.wiki-principle-card__title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-display, Georgia, serif);
+}
+
+.wiki-principle-card__badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: #f4eee1;
+  color: #5c4e38;
+}
+
+.wiki-principle-card__quote {
+  margin: 0 0 1rem 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #3b4252;
+  font-style: italic;
+  padding-left: 0.75rem;
+  border-left: 2px solid #e8decb;
+}
+
+.wiki-snippets-heading {
+  margin: 0 0 0.55rem 0;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--muted);
-  margin-bottom: 0.3rem;
+  font-weight: 700;
 }
 
-.lore-dossier__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.65rem, 2.4vw, 2.2rem);
-  font-weight: 630;
-  letter-spacing: -0.025em;
-}
-
-.lore-dossier__close {
-  background: none;
-  border: 1px solid var(--rule);
-  padding: 0.4rem 0.85rem;
-  font-size: 0.84rem;
-  cursor: pointer;
-  transition: border-color 180ms ease, background-color 180ms ease;
-}
-
-.lore-dossier__close:hover {
-  border-color: var(--ink);
-  background-color: var(--white);
-}
-
-.lore-dossier__quote {
-  font-size: 1.05rem;
-  line-height: 1.58;
-  color: var(--ink-soft);
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 1.65rem;
-}
-
-.lore-dossier__body {
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 1.65rem;
-  align-items: start;
-}
-
-.lore-dossier__slot-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.9rem;
-}
-
-.lore-dossier__lines {
+.wiki-snippets-stack {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  margin-bottom: 1rem;
 }
 
-.lore-dossier__lines span {
-  display: block;
-  height: 1px;
-  background-color: var(--rule);
-  width: 100%;
+.wiki-snippet-pill {
+  background: #faf8f3;
+  border: 1px solid #ebd9c3;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
 }
 
-.lore-dossier__lines span.short {
-  width: 68%;
+.wiki-snippet-pill.is-placeholder {
+  background: #fefdf9;
+  border-style: dashed;
+  border-color: #d8cbb5;
 }
 
-.lore-dossier__placeholder-note {
-  font-size: 0.88rem;
-  line-height: 1.55;
+.wiki-snippet-pill__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.wiki-snippet-tag {
+  font-family: monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--principle-accent, #2b7a4b);
+  background: #ffffff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.wiki-snippet-ctx {
+  font-size: 0.68rem;
   color: var(--muted);
 }
 
-.lore-dossier__evidence-stage {
-  border: 1px solid var(--rule-subtle);
+.wiki-snippet-title {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 650;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
 }
 
-/* 04. WHY HIRE ME — Calm Workspace & Standalone Closing Statement */
-.why-hire-section {
-  padding-top: clamp(5rem, 12vh, 9.5rem);
-  padding-bottom: clamp(6.5rem, 15vh, 12rem);
+.wiki-snippet-body {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.52;
+  color: #4a5568;
+}
+
+/* Section 2: Dedicated Field Notes Stream */
+.wiki-field-notes-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wiki-snippet-callout {
+  background: #ffffff;
+  border: 1px solid #e2d7c3;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.wiki-callout-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2762a4;
+  background: #ebf3fa;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.45rem;
+}
+
+.wiki-callout-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-display, Georgia, serif);
+}
+
+.wiki-callout-body {
+  margin: 0 0 0.65rem 0;
+  font-size: 0.86rem;
+  line-height: 1.58;
+  color: #3b4252;
+}
+
+.wiki-callout-author {
+  display: block;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.wiki-add-snippet-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: #f7f3e8;
+  border: 1.5px dashed #cfc2a8;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+}
+
+.wiki-add-snippet-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.wiki-add-snippet-info {
+  flex: 1;
+}
+
+.wiki-add-snippet-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.wiki-add-snippet-desc {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #5c4e38;
+}
+
+.wiki-add-snippet-desc code {
+  background: #ffffff;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid #ded3be;
+  font-size: 0.75rem;
+}
+
+/* Section 3: Career Timeline */
+.wiki-career-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wiki-career-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.wiki-career-item__era {
+  font-family: monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding-top: 0.35rem;
+}
+
+.wiki-career-item__card {
+  background: #ffffff;
+  border: 1px solid #e2d7c3;
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+}
+
+.wiki-career-item__org {
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.wiki-career-item__org span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.wiki-career-item__summary {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.84rem;
+  line-height: 1.52;
+  color: #4a5568;
+}
+
+.wiki-career-item__highlight {
+  font-size: 0.78rem;
+  color: #2b7a4b;
+  font-weight: 600;
+  margin-bottom: 0.55rem;
+}
+
+.wiki-career-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.wiki-tag-pill {
+  font-size: 0.68rem;
+  background: #f4eee1;
+  color: #5c4e38;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+}
+
+/* Section 4: Trivia Grid */
+.wiki-trivia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.85rem;
+}
+
+.wiki-trivia-card {
+  background: #ffffff;
+  border: 1px solid #e2d7c3;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+
+.wiki-trivia-category {
+  display: block;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #c2831f;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.wiki-trivia-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.wiki-trivia-note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #4a5568;
+}
+
+.wiki-trivia-quote {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 2px solid #e2d7c3;
+  padding-left: 0.5rem;
+}
+
+/* Section 5: References */
+.wiki-references-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* Right Column: Classic Wiki Infobox */
+.wiki-infobox {
+  width: clamp(280px, 34%, 380px);
+  flex-shrink: 0;
+  background: #fbf9f5;
+  border: 1.5px solid #dcd1bd;
+  border-radius: 8px;
+  padding: 0.85rem;
+  box-shadow: 0 4px 14px rgba(40, 30, 20, 0.05);
+}
+
+.wiki-infobox__title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  padding-bottom: 0.15rem;
+}
+
+.wiki-infobox__subtitle {
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ebd9c3;
+  margin-bottom: 0.75rem;
+}
+
+/* Common Visual Blend in Infobox */
+.wiki-infobox__visual-wrapper {
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wiki-visual-blend {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.wiki-visual-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  /* Feathered radial edge so the visual seamlessly melts into the container canvas */
+  mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 80%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 80%, transparent 100%);
+  transition: transform 300ms ease;
+}
+
+.wiki-avatar-img {
+  max-height: 280px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.wiki-visual-img:hover {
+  transform: scale(1.02);
+}
+
+.wiki-infobox__visual-caption {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: #72624b;
+  font-style: italic;
+  padding-top: 0.45rem;
+  text-align: center;
+}
+
+/* Infobox Table */
+.wiki-infobox__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  line-height: 1.48;
+}
+
+.wiki-infobox__table tr {
+  border-bottom: 1px solid #f0e6d6;
+}
+
+.wiki-infobox__table tr:last-child {
+  border-bottom: none;
+}
+
+.wiki-infobox__table th {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.45rem 0.6rem 0.45rem 0;
+  font-weight: 650;
+  color: #3b3223;
+  width: 32%;
+}
+
+.wiki-infobox__table td {
+  vertical-align: top;
+  padding: 0.45rem 0;
+  color: #4a5568;
+}
+
+.wiki-infobox-highlight {
+  font-weight: 650;
+  color: #2b7a4b;
+}
+
+.wiki-status-pill {
+  display: inline-block;
+  background: #e6f4ea;
+  color: #137333;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid #ceead6;
+}
+
+.wiki-infobox-bullets {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.wiki-infobox-bullets li {
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 900px) {
+  .wiki-layout {
+    flex-direction: column-reverse;
+    padding: 1rem 1rem 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .wiki-infobox {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .wiki-navbar {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .wiki-navbar__search {
+    max-width: 100%;
+    order: 3;
+    width: 100%;
+  }
+
+  .wiki-navbar__tabs {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .wiki-nav-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .wiki-career-item {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .lore-dossier {
+    width: 96vw;
+    height: 94svh;
+    max-height: 94svh;
+  }
+
+  .clay-computer-chassis {
+    padding: 8px 8px 6px 8px;
+    border-radius: 20px;
+    border-width: 2.5px;
+  }
+
+  .clay-computer-vent-slits {
+    display: none;
+  }
+
+  .clay-computer-badge {
+    padding: 0.15rem 0.5rem;
+  }
+
+  .clay-badge-text {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+  }
+
+  .clay-computer-controls {
+    gap: 0.5rem;
+  }
+
+  .clay-power-indicator {
+    padding: 0.15rem 0.4rem;
+  }
+
+  .clay-led-label {
+    display: none;
+  }
+
+  .clay-close-keycap {
+    padding: 0.25rem 0.6rem;
+  }
+
+  .clay-keycap-legend {
+    font-size: 0.66rem;
+  }
+
+  .clay-computer-screen-housing {
+    border-radius: 14px;
+    padding: 4px;
+  }
+
+  .clay-computer-bezel-bottom {
+    padding: 0.4rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .clay-computer-model {
+    font-size: 0.56rem;
+    letter-spacing: 0.04em;
+  }
+
+  .clay-floppy-slot {
+    width: 32px;
+  }
+
+  .wiki-navbar__brand {
+    gap: 0.45rem;
+  }
+
+  .wiki-navbar__title {
+    font-size: 1.05rem;
+  }
+
+  .wiki-breadcrumbs-bar {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .wiki-notice-box {
+    margin: 0.75rem 0.85rem 0.35rem 0.85rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .wiki-article__title {
+    font-size: 1.6rem;
+  }
+}
+
+/* 04. WHY HIRE ME — Kinetic Drum Roller Spread & Calm Workspace */
+.why-hire-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 320vh;
+  background-color: var(--paper);
+}
+
+.why-hire-pinned-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+
+.why-hire-shell {
+  width: 100%;
 }
 
 .why-hire-lead {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
-  margin-bottom: clamp(3rem, 6vh, 4.75rem);
+  margin-bottom: clamp(2rem, 3.5vh, 3.25rem);
 }
 
 .why-hire-heading {
-  grid-column: 1 / 10;
-  max-width: 18ch;
+  grid-column: 1 / 12;
+  max-width: 38ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.why-hire-heading-line {
+  display: block;
 }
 
 .why-hire-body-grid {
@@ -680,135 +2035,425 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
   align-items: center;
+  width: 100%;
 }
 
-.why-hire-prose {
-  grid-column: 2 / 7;
+.why-hire-drum-col {
+  grid-column: 1 / 7;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.why-hire-visual-col {
+  grid-column: 7 / 13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-hire-visual-col .why-hire-stage-figure {
+  width: 100%;
+  max-width: 580px;
+}
+
+/* Kinetic Vertical Drum Viewport with edge gradient fading */
+.why-hire-drum-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 58vh, 560px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.why-hire-drum-track {
+  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.55rem;
+  align-items: flex-start;
+  gap: clamp(2rem, 3.5vh, 3rem);
+  will-change: transform;
 }
 
-.why-hire-visual {
-  grid-column: 7 / 13;
+.why-hire-drum-item {
+  width: 100%;
+  max-width: 44ch;
+  transform-origin: left center;
+  will-change: transform, opacity;
+  transition: opacity 120ms ease, transform 120ms ease;
 }
 
-.why-hire-coda-wrap {
-  margin-top: clamp(5rem, 12vh, 9.5rem);
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--grid-gap);
-}
-
-.why-hire-coda {
-  grid-column: 2 / 12;
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 96;
-  font-size: clamp(1.9rem, 3.3vw, 3.25rem);
-  line-height: 1.08;
-  letter-spacing: -0.028em;
+.why-hire-drum-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+  line-height: 1.54;
+  letter-spacing: -0.012em;
   color: var(--ink);
+  margin: 0;
+  transition: color 150ms ease;
 }
 
-/* 05. BEYOND THE SCREEN — Playful Sculptural Constellation */
+.why-hire-drum-item--closing .why-hire-drum-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 2.1vw, 2.05rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  max-width: 28ch;
+}
+
+/* Reduced motion fallback styling */
+.why-hire-section--reduced-motion {
+  padding-block: clamp(6rem, 14vh, 10rem);
+}
+
+.why-hire-section--reduced-motion .why-hire-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 44ch;
+}
+
+.why-hire-section--reduced-motion .why-hire-body-statement {
+  font-family: var(--font-body);
+}
+
+.why-hire-section--reduced-motion .why-hire-closing-statement {
+  font-family: var(--font-body);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin-top: 1rem;
+}
+
+/* 05. BEYOND THE SCREEN — Animated Claymation Visual Centerpiece */
 .beyond-section {
-  padding-block: clamp(6rem, 14vh, 11rem);
+  padding-block: clamp(5.5rem, 12vh, 9.5rem);
   border-top: 1px solid var(--rule-subtle);
+  background-color: var(--white);
+  overflow: hidden;
+  scroll-margin-top: 6rem;
 }
 
 .beyond-header {
-  margin-bottom: clamp(2.75rem, 6vh, 4.5rem);
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
 }
 
 .beyond-heading {
   max-width: 15ch;
 }
 
-.beyond-spread {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--grid-gap);
-  align-items: start;
-}
-
-.beyond-narrative {
-  grid-column: 1 / 6;
-  display: flex;
-  flex-direction: column;
-  gap: 2.1rem;
-}
-
-.beyond-paragraph {
-  transition: color 200ms ease, transform 240ms var(--ease-editorial);
-}
-
-.beyond-paragraph.is-resonating {
-  color: var(--ink);
-  transform: translateX(4px);
-}
-
-/* Deliberate non-grid constellation across open canvas */
-.beyond-constellation {
-  grid-column: 6 / 13;
+/* Master Composition Stage */
+.beyond-composition {
   position: relative;
-  min-height: 27rem;
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: clamp(520px, 46vw, 700px);
 }
 
-.beyond-object-item {
+/* Central Video Visual */
+.beyond-visual-wrap {
+  position: relative;
+  width: clamp(380px, 44vw, 590px);
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background: transparent;
+}
+
+.beyond-visual {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  background-color: transparent;
+  display: block;
+  user-select: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Callouts — Editorial Text Blocks */
+.beyond-callout {
   position: absolute;
-  width: clamp(9.5rem, 15.5vw, 13.75rem);
-  transition: transform 320ms var(--ease-editorial);
+  z-index: 2;
+  transition: transform 240ms var(--ease-editorial);
 }
 
-.beyond-object--reading {
-  top: -3%;
-  left: 4%;
+.beyond-callout-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.48;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  font-weight: 450;
+  margin: 0;
 }
 
-.beyond-object--building {
-  top: 7%;
-  right: 0%;
+/* 1. Upper Left: Reading & Dune Universe */
+.beyond-callout--reading {
+  top: 10%;
+  left: 2%;
+  max-width: clamp(195px, 19.5vw, 245px);
 }
 
-.beyond-object--football {
-  bottom: 5%;
-  left: 17%;
+.beyond-arrow--reading {
+  position: absolute;
+  top: -1.75rem;
+  right: -4.4rem;
+  width: clamp(56px, 5.3vw, 72px);
+  pointer-events: none;
+  user-select: none;
 }
 
-.beyond-object--training {
-  bottom: -4%;
-  right: 7%;
+.beyond-arrow--reading img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.beyond-object-item:hover,
-.beyond-object-item.is-active {
-  transform: translateY(-5px) rotate(-1.5deg) scale(1.03);
+/* 2. Lower Left: FC Barcelona & Football */
+.beyond-callout--football {
+  top: 48%;
+  left: 2%;
+  max-width: clamp(200px, 20vw, 255px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .beyond-object-item:hover,
-  .beyond-object-item.is-active,
-  .beyond-paragraph.is-resonating {
-    transform: none;
+.beyond-arrow--football {
+  position: absolute;
+  top: -2.35rem;
+  right: -3.8rem;
+  width: clamp(58px, 5.5vw, 76px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.beyond-arrow--football img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3. Right: Building Small Projects */
+.beyond-callout--building {
+  top: 26%;
+  right: 2%;
+  max-width: clamp(195px, 19vw, 245px);
+}
+
+.beyond-arrow--building {
+  position: absolute;
+  bottom: -3.6rem;
+  left: -2.8rem;
+  width: clamp(68px, 6.3vw, 88px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.beyond-arrow--building img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Centered Signoff Caption */
+.beyond-caption-wrap {
+  margin-top: clamp(2.25rem, 4.5vh, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+.beyond-caption {
+  font-family: var(--font-body);
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  line-height: 1.4;
+  letter-spacing: -0.016em;
+  color: var(--ink);
+  font-weight: 480;
+  text-align: center;
+  margin: 0;
+  max-width: 60rem;
+}
+
+@media (min-width: 1080px) {
+  .beyond-caption {
+    white-space: nowrap;
   }
 }
 
-.beyond-signoff-wrap {
-  margin-top: clamp(2.25rem, 5vh, 3.75rem);
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--grid-gap);
+.beyond-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
-.beyond-signoff {
-  grid-column: 4 / 12;
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 48;
-  font-size: clamp(1.35rem, 2.05vw, 1.95rem);
-  line-height: 1.24;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  max-width: 34ch;
+.beyond-accent--left img {
+  width: clamp(20px, 1.8vw, 24px);
+  height: auto;
+  display: block;
+}
+
+.beyond-accent--right img {
+  width: clamp(22px, 2vw, 29px);
+  height: auto;
+  display: block;
+}
+
+/* Tablet Media Query (max-width: 960px) and (min-width: 681px) */
+@media (max-width: 960px) and (min-width: 681px) {
+  .beyond-composition {
+    min-height: 480px;
+  }
+
+  .beyond-visual-wrap {
+    width: clamp(300px, 38vw, 380px);
+  }
+
+  .beyond-callout--reading {
+    top: 5%;
+    left: 0%;
+    max-width: 175px;
+  }
+
+  .beyond-arrow--reading {
+    top: -1.3rem;
+    right: -3.2rem;
+    width: 48px;
+  }
+
+  .beyond-callout--football {
+    top: 50%;
+    left: 0%;
+    max-width: 185px;
+  }
+
+  .beyond-arrow--football {
+    top: -2rem;
+    right: -3rem;
+    width: 50px;
+  }
+
+  .beyond-callout--building {
+    top: 26%;
+    right: 0%;
+    max-width: 175px;
+  }
+
+  .beyond-arrow--building {
+    bottom: -3rem;
+    left: -2.2rem;
+    width: 60px;
+  }
+}
+
+/* Mobile Media Query (max-width: 680px) */
+@media (max-width: 680px) {
+  .beyond-section {
+    padding-block: clamp(3.5rem, 8vh, 5.5rem);
+  }
+
+  .beyond-composition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    gap: 1.75rem;
+  }
+
+  .beyond-visual-wrap {
+    width: min(100%, 330px);
+    margin-inline: auto;
+    order: 1;
+  }
+
+  .beyond-callout {
+    position: static;
+    max-width: 320px;
+    width: 100%;
+    margin-inline: auto;
+    text-align: left;
+    padding-inline: 0.25rem;
+  }
+
+  .beyond-callout--reading {
+    order: 2;
+  }
+
+  .beyond-callout--football {
+    order: 3;
+  }
+
+  .beyond-callout--building {
+    order: 4;
+  }
+
+  .beyond-callout-text {
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+
+  .beyond-arrow {
+    display: none;
+  }
+
+  .beyond-caption-wrap {
+    margin-top: 1.75rem;
+    gap: 0.5rem;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  .beyond-caption {
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+
+  .beyond-accent--left img {
+    width: 18px;
+  }
+
+  .beyond-accent--right img {
+    width: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beyond-callout {
+    transition: none;
+  }
 }
 
 /* 06. ABOUT BRIDGE — Quiet Editorial Threshold */
@@ -920,7 +2565,10 @@
     width: 100%;
   }
 
-  .wispr-heading,
+  .wispr-heading {
+    font-size: clamp(1.8rem, 5.8vw, 2.6rem);
+  }
+
   .why-me-heading {
     font-size: clamp(2rem, 6.5vw, 2.75rem);
   }
@@ -930,8 +2578,8 @@
   }
 
   .wispr-drum-text {
-    font-size: clamp(1.15rem, 4.2vw, 1.45rem);
-    line-height: 1.4;
+    font-size: clamp(1.1rem, 3.8vw, 1.35rem);
+    line-height: 1.5;
   }
 
   .why-me-heading,
@@ -941,53 +2589,65 @@
     padding-left: 0;
   }
 
+  .why-me-attributes-col {
+    align-items: flex-start;
+  }
+
+  .character-powers-header,
+  .character-powers-list,
+  .why-me-single-action {
+    max-width: 100%;
+  }
+
   .why-me-character-col {
     position: static;
-    max-width: 21rem;
-    margin-bottom: 2.25rem;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .why-me-character-figure {
+    width: 100%;
+    max-width: min(14rem, 64vw);
   }
 
   .lore-dossier__body {
     grid-template-columns: 1fr;
   }
 
+  .why-hire-body-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .why-hire-heading,
+  .why-hire-drum-col,
+  .why-hire-visual-col,
   .why-hire-prose,
   .why-hire-visual,
   .why-hire-coda {
     grid-column: 1 / -1;
-  }
-
-  .why-hire-visual {
-    margin-top: 2.25rem;
-  }
-
-  .beyond-narrative,
-  .beyond-constellation,
-  .beyond-signoff {
-    grid-column: 1 / -1;
-  }
-
-  .beyond-constellation {
-    position: static;
-    min-height: 0;
-    margin-top: 2.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .beyond-object-item {
-    position: static;
     width: 100%;
-    max-width: 10rem;
-    justify-self: center;
   }
 
-  .beyond-object-item:nth-child(even) {
-    margin-top: 2rem;
+  .why-hire-drum-viewport {
+    height: clamp(340px, 50vh, 440px);
   }
+
+  .why-hire-drum-text {
+    font-size: clamp(1.1rem, 3.8vw, 1.35rem);
+    line-height: 1.5;
+  }
+
+  .why-hire-visual-col {
+    display: none;
+  }
+
+
 
   .about-bridge-content {
     grid-column: 1 / -1;
