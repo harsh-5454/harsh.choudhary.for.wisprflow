@@ -8,6 +8,7 @@ export const ResumeLinkControl: React.FC<{
   className?: string;
 }> = ({ label, className = '' }) => {
   const [pendingNotice, setPendingNotice] = useState(false);
+  const isExternal = RESUME_ASSET.href.startsWith('http');
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!RESUME_ASSET.supplied) {
@@ -22,7 +23,9 @@ export const ResumeLinkControl: React.FC<{
         href={RESUME_ASSET.supplied ? RESUME_ASSET.href : '#resume-slot'}
         onClick={handleClick}
         className={className}
-        download={RESUME_ASSET.supplied ? RESUME_ASSET.filename : undefined}
+        download={RESUME_ASSET.supplied && !isExternal ? RESUME_ASSET.filename : undefined}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
         aria-describedby={pendingNotice ? 'resume-slot-notice' : undefined}
       >
         {label}

@@ -273,12 +273,12 @@ export const SITE_COPY = {
           {
             title: 'India Alpha: The Techade of Opportunity',
             subtitle: 'Venture capital thesis on Indian tech evolution',
-            url: '#',
+            url: 'https://kalaari.com/insights-from-the-fronlines/india-alpha-the-techade-of-opportunity-223',
           },
           {
             title: 'The New Wave of AI Agents',
             subtitle: 'Analysis of autonomous software architectures',
-            url: '#',
+            url: 'https://kalaari.com/insights-from-the-fronlines/new-wave-ai-agents-2',
           },
         ],
         closing:

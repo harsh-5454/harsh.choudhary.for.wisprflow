@@ -103,7 +103,20 @@ export const CareerChapter: React.FC<CareerChapterProps> = ({ chapter }) => {
             <ul className="career-subblock-list">
               {chapter.writingList.map((item) => (
                 <li key={item.title}>
-                  <strong>{item.title}</strong> — {item.subtitle}
+                  {item.url && item.url !== '#' ? (
+                    <a
+                      href={item.url}
+                      target={item.url.startsWith('http') ? '_blank' : undefined}
+                      rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="career-writing-link"
+                    >
+                      <strong>{item.title}</strong> — {item.subtitle} ↗
+                    </a>
+                  ) : (
+                    <>
+                      <strong>{item.title}</strong> — {item.subtitle}
+                    </>
+                  )}
                 </li>
               ))}
             </ul>

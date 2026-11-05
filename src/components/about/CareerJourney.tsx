@@ -130,6 +130,8 @@ const UpperZoneContent: React.FC<UpperZoneProps> = ({ chapter }) => {
                   <a
                     key={idx}
                     href={item.url || '#'}
+                    target={item.url && item.url.startsWith('http') ? '_blank' : undefined}
+                    rel={item.url && item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="career-writing-card"
                     tabIndex={0}
                   >
@@ -388,7 +390,13 @@ export const CareerJourney: React.FC = () => {
                 <ul>
                   {chapter.writingList.map((w) => (
                     <li key={w.title}>
-                      {w.title} — {w.subtitle}
+                      {w.url && w.url !== '#' ? (
+                        <a href={w.url} target="_blank" rel="noopener noreferrer">
+                          {w.title} — {w.subtitle}
+                        </a>
+                      ) : (
+                        `${w.title} — ${w.subtitle}`
+                      )}
                     </li>
                   ))}
                 </ul>

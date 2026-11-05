@@ -24,7 +24,7 @@ export interface AssetDefinition {
 export const RESUME_ASSET = {
   id: 'DOC-RESUME',
   filename: 'harsh_choudhary_resume.pdf',
-  href: '/assets/shared/harsh_choudhary_resume.pdf',
+  href: 'https://drive.google.com/file/d/17moVwPDdHUKSvkVEpdolQOkGGyF7Vd1s/view?usp=sharing',
   supplied: true,
 } as const;
 
